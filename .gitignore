@@ -1,0 +1,25 @@
+# dataset
+data/
+datasets/
+*.zip
+
+# logs
+experiments/
+runs/
+logs/
+
+# models
+*.pth
+*.pt
+weights/
+
+# cache
+__pycache__/
+*.pyc
+
+# temp files
+.tmp.driveupload/
+None
+1
+DataLoader
+torch.Tensor

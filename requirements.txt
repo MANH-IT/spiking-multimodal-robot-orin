@@ -1,0 +1,50 @@
+# ==================================================
+# REQUIREMENTS.TXT - Multi-Modal Robot AI Project
+# ==================================================
+# Dự án: Hệ thống nhận diện đối tượng 3D sử dụng SNN và camera RGB-D
+# Môi trường: Python 3.10+
+# ==================================================
+
+# ---------- XỬ LÝ DỮ LIỆU CƠ BẢN ----------
+numpy>=1.24.0              # Xử lý ma trận và mảng
+opencv-python>=4.8.0       # Xử lý ảnh RGB
+opencv-contrib-python>=4.8.0 # Các module mở rộng của OpenCV
+Pillow>=9.5.0              # Xử lý ảnh cơ bản
+scipy>=1.10.0              # Tính toán khoa học
+pandas>=2.0.0               # Xử lý CSV và dữ liệu dạng bảng
+tqdm>=4.65.0                # Hiển thị tiến độ xử lý
+
+# ---------- XỬ LÝ 3D & DEPTH ----------
+open3d>=0.17.0              # Xử lý point cloud và 3D
+trimesh>=3.23.0             # Đọc/xử lý file mesh (.obj)
+pyntcloud>=0.3.1            # Xử lý point cloud
+# openni (thay bằng openni-python)
+openni==2.3.0      # Hỗ trợ OpenNI depth camera
+
+# ---------- DEEP LEARNING & AI ----------
+torch>=2.0.0                 # PyTorch core
+torchvision>=0.15.0          # Xử lý ảnh cho PyTorch
+snntorch>=0.7.0              # Spiking Neural Networks
+ultralytics>=8.0.0           # YOLOv8 để so sánh baseline
+
+# ---------- TỐI ƯU HÓA & TRIỂN KHAI ----------
+onnx>=1.14.0                 # Export model sang ONNX
+onnxruntime>=1.15.0          # Chạy ONNX inference
+# TensorRT cho Jetson (cài riêng trên Jetson)
+# pycuda>=2022.2.2            # Hỗ trợ CUDA cho TensorRT
+
+# ---------- ROS2 & GIAO TIẾP ----------
+# Các thư viện ROS2 cần cài riêng qua apt
+# rclpy (ROS2 Python client)
+# cv_bridge (Chuyển đổi ROS Image <-> OpenCV)
+# sensor_msgs (Message types cho camera)
+
+# ---------- VISUALIZATION & LOGGING ----------
+matplotlib>=3.7.0            # Vẽ biểu đồ
+tensorboard>=2.13.0          # Theo dõi quá trình training
+wandb>=0.15.0                # (Tùy chọn) Logging online
+
+# ---------- UTILITIES ----------
+pyyaml>=6.0                  # Đọc file YAML
+scikit-learn>=1.3.0          # Xử lý dữ liệu, metrics
+einops>=0.6.0                # Thao tác tensor dễ dàng
