@@ -1,0 +1,17 @@
+{
+  "ask_directions": 0,
+  "ask_explanation": 1,
+  "ask_grade": 2,
+  "ask_homework": 3,
+  "ask_recipe": 4,
+  "ask_weather": 5,
+  "check_flight_gate": 6,
+  "check_flight_time": 7,
+  "check_in_request": 8,
+  "control_device": 9,
+  "play_music": 10,
+  "report_lost_item": 11,
+  "request_break": 12,
+  "set_reminder": 13,
+  "solve_problem": 14
+}

@@ -1,0 +1,12 @@
+# ==================================================
+# REQUIREMENTS-JETSON.TXT - Cho NVIDIA Jetson AGX Orin
+# ==================================================
+
+numpy==1.24.0
+opencv-python==4.8.0
+torch==2.1.0                # Bản đặc biệt cho Jetson
+torchvision==0.16.0         # Bản đặc biệt cho Jetson
+snntorch==0.7.0
+onnx==1.14.0
+pycuda==2022.2.2            # Cho TensorRT
+tensorrt                     # Đã có sẵn trong JetPack

@@ -1,0 +1,29 @@
+# Requirements cho Demo Scripts
+
+# Core
+opencv-python>=4.5.0
+numpy>=1.21.0
+
+# Touch screen UI (Robot UTT)
+PyQt5>=5.15.0
+
+# Voice (ASR/TTS - optional)
+pyaudio>=0.2.11
+pygame>=2.5.0
+
+# Web frameworks (chọn một hoặc cả hai)
+streamlit>=1.28.0
+gradio>=4.0.0
+
+# Optional - cho real models
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Optional - cho point cloud viewer
+open3d>=0.17.0
+# hoặc
+pyvista>=0.42.0
+
+# Optional - cho audio processing
+pyaudio>=0.2.11
+soundfile>=0.12.0

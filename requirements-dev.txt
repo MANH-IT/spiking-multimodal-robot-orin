@@ -1,0 +1,47 @@
+# ==================================================
+# REQUIREMENTS-DEV.TXT - Development Dependencies
+# ==================================================
+# Các công cụ và thư viện cho development, testing, và code quality
+# Cài đặt: pip install -r requirements-dev.txt
+# ==================================================
+
+# ---------- TESTING ----------
+pytest>=7.4.0              # Framework testing
+pytest-cov>=4.1.0          # Coverage reporting
+pytest-xdist>=3.3.0        # Parallel testing
+pytest-timeout>=2.1.0      # Timeout cho tests
+
+# ---------- CODE QUALITY & FORMATTING ----------
+black>=23.9.0               # Code formatter
+isort>=5.12.0               # Import sorter
+flake8>=6.1.0               # Linter
+mypy>=1.6.0                 # Type checker
+pylint>=3.0.0               # Advanced linter
+ruff>=0.1.0                 # Fast linter (alternative to flake8)
+
+# ---------- TYPE STUBS ----------
+types-PyYAML>=6.0.0        # Type stubs cho PyYAML
+types-requests>=2.31.0     # Type stubs cho requests
+
+# ---------- PRE-COMMIT HOOKS ----------
+pre-commit>=3.5.0          # Git hooks manager
+
+# ---------- DOCUMENTATION ----------
+sphinx>=7.2.0              # Documentation generator
+sphinx-rtd-theme>=1.3.0    # Read the Docs theme
+myst-parser>=2.0.0         # Markdown parser cho Sphinx
+
+# ---------- DEVELOPMENT TOOLS ----------
+ipython>=8.16.0            # Enhanced Python shell
+jupyter>=1.0.0             # Jupyter notebook
+ipdb>=0.13.0               # Enhanced debugger
+rich>=13.6.0               # Rich text và beautiful formatting
+tqdm>=4.66.0               # Progress bars (nếu chưa có trong requirements.txt)
+
+# ---------- PROFILING & DEBUGGING ----------
+py-spy>=0.3.14             # Sampling profiler
+memory-profiler>=0.61.0    # Memory profiler
+line-profiler>=4.1.0       # Line-by-line profiler
+
+# ---------- VERSION CONTROL ----------
+gitpython>=3.1.40          # Git operations từ Python

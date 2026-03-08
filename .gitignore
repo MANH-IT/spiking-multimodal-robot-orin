@@ -1,25 +1,82 @@
-# dataset
+# ==================================================
+# Multi-Modal Robot AI Project - .gitignore
+# ==================================================
+
+# ---------- DATASETS & DATA ----------
 data/
 datasets/
 *.zip
+*.tar.gz
+*.tar
+*.h5
+*.hdf5
 
-# logs
+# ---------- LOGS & EXPERIMENTS ----------
 experiments/
 runs/
 logs/
+*.log
+tensorboard/
+wandb/
 
-# models
+# ---------- MODELS & WEIGHTS ----------
 *.pth
 *.pt
+*.pkl
+*.ckpt
+*.safetensors
 weights/
+checkpoints/
+models/saved/
 
-# cache
+# ---------- PYTHON CACHE ----------
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
 
-# temp files
+# ---------- IDE & EDITORS ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# ---------- ENVIRONMENT & CONFIG ----------
+.env
+.env.local
+.venv/
+venv/
+ENV/
+env/
+*.local
+
+# ---------- JUPYTER NOTEBOOKS ----------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---------- TEMP FILES ----------
 .tmp.driveupload/
-None
-1
-DataLoader
-torch.Tensor
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ---------- JETSON SPECIFIC ----------
+*.trt
+*.engine
+*.onnx
+*.uff
+
+# ---------- ROS2 ----------
+install/
+build/
+log/
