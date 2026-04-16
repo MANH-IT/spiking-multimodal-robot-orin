@@ -1,0 +1,9 @@
+opencv-python
+ultralytics
+numpy
+deep-sort-realtime
+spikingjelly
+torch
+torchvision
+onnx
+onnxruntime
