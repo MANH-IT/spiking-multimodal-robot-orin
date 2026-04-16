@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thị giác Robot EEEC - Đại học Giao thông Vận tải</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --utc-blue: #0099ff;
+            --utc-yellow: #ffdd44;
+            --utc-dark: #0a0e1a;
+            --utc-gray: #1a1f2e;
+            --gradient-blue: linear-gradient(135deg, #0099ff, #0066cc);
+            --gradient-gold: linear-gradient(135deg, #ffdd44, #ffaa00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--utc-dark);
+            color: #e0e5f0;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-brand small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--utc-yellow);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #b0b8cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            color: var(--utc-yellow);
+            border-bottom: 2px solid var(--utc-yellow);
+        }
+
+        .status-badge {
+            background: rgba(0, 204, 0, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            color: #00ff88;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .camera-main {
+            padding: 2rem 5%;
+            min-height: calc(100vh - 160px);
+        }
+
+        .camera-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(26, 31, 46, 0.5);
+            border-radius: 24px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 153, 255, 0.1);
+            min-height: 600px;
+        }
+
+        .camera-sidebar {
+            width: 320px;
+            background: rgba(10, 14, 26, 0.8);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border-right: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .camera-info {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .camera-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--utc-yellow);
+        }
+
+        .camera-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .camera-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .camera-controls {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .camera-controls h4 {
+            font-size: 0.9rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.8rem;
+        }
+
+        .control-group {
+            margin-bottom: 1rem;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #8a92a8;
+            margin-bottom: 0.5rem;
+        }
+
+        select,
+        input {
+            width: 100%;
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.6rem;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: var(--utc-blue);
+        }
+
+        .detection-status,
+        .detected-objects {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .detection-status h4,
+        .detected-objects h4 {
+            font-size: 0.9rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.8rem;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .status-value {
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        .object-list {
+            list-style: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .object-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        .object-name {
+            color: #e0e5f0;
+        }
+
+        .object-confidence {
+            color: var(--utc-yellow);
+        }
+
+        .camera-display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .camera-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .action-btn {
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 221, 68, 0.2);
+            border-color: var(--utc-yellow);
+        }
+
+        .video-container {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            border: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        #videoFeed {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-panel {
+            background: rgba(10, 14, 26, 0.6);
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--utc-yellow);
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            color: #8a92a8;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #070b14, #0a0e1a);
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info p,
+        .footer-tech p {
+            margin-bottom: 0.5rem;
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .footer-info p strong {
+            color: var(--utc-yellow);
+        }
+
+        @media (max-width: 768px) {
+            .camera-container {
+                flex-direction: column;
+            }
+
+            .camera-sidebar {
+                width: 100%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo"
+                style="width:48px;height:48px;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 2px var(--utc-yellow);">
+                <img src="/assets/images/logo.png" alt="Logo UTC" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <span>Robot EEEC<small>Đại học Giao thông Vận tải</small></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="/chat" class="nav-link">Trò chuyện</a></li>
+            <li class="nav-item active"><a href="/camera" class="nav-link">Thị giác</a></li>
+            <li class="nav-item"><a href="/map" class="nav-link">Bản đồ</a></li>
+            <li class="nav-item"><a href="/news" class="nav-link">Tin tức</a></li>
+            <li class="nav-item"><a href="/team" class="nav-link">Đội ngũ</a></li>
+        </ul>
+        <div class="nav-status">
+            <span class="status-badge">SNN : ONLINE</span>
+        </div>
+    </nav>
+
+    <main class="camera-main">
+        <div class="camera-container">
+            <div class="camera-sidebar">
+                <div class="camera-info">
+                    <div class="camera-avatar">
+                        <img src="/assets/images/logo.png" alt="Robot EEEC">
+                    </div>
+                    <h3>Thị giác Robot EEEC</h3>
+                    <p>Nhận diện vật thể thông minh</p>
+                </div>
+
+                <div class="camera-controls">
+                    <h4>Điều khiển</h4>
+                    <div class="control-group">
+                        <label class="control-label">Chế độ phát hiện</label>
+                        <select id="detectionMode">
+                            <option value="general">Tổng quát</option>
+                            <option value="face">Nhận diện khuôn mặt</option>
+                            <option value="object">Vật thể</option>
+                            <option value="motion">Chuyển động</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Độ nhạy</label>
+                        <input type="range" id="sensitivity" min="0" max="100" value="70">
+                    </div>
+                </div>
+
+                <div class="detection-status">
+                    <h4>Trạng thái</h4>
+                    <div class="status-item">
+                        <span>Camera:</span>
+                        <span class="status-value" id="cameraStatus">Đang khởi tạo</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Phát hiện:</span>
+                        <span class="status-value" id="detectionStatus">Sẵn sàng</span>
+                    </div>
+                    <div class="status-item">
+                        <span>FPS:</span>
+                        <span class="status-value" id="fpsValue">--</span>
+                    </div>
+                </div>
+
+                <div class="detected-objects">
+                    <h4>Đối tượng phát hiện</h4>
+                    <ul class="object-list" id="objectList">
+                        <li style="color:#8a92a8; text-align:center;">Chưa có dữ liệu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="camera-display">
+                <div class="camera-header">
+                    <h3>Luồng hình ảnh trực tiếp</h3>
+                    <div class="action-buttons">
+                        <button id="startBtn" class="action-btn">Bắt đầu</button>
+                        <button id="stopBtn" class="action-btn">Dừng</button>
+                        <button id="captureBtn" class="action-btn">Chụp ảnh</button>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video id="videoFeed" autoplay playsinline></video>
+                    </div>
+
+                    <div class="info-panel">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-value" id="objectCount">0</div>
+                                <div class="info-label">Đối tượng</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-value" id="confidenceAvg">0%</div>
+                                <div class="info-label">Độ tin cậy</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-value" id="processingTime">0ms</div>
+                                <div class="info-label">Thời gian xử lý</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Đại học Giao thông Vận tải</strong></p>
+                <p>Số 3 Phố Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội</p>
+                <p>(024) 3766 1234 | contact@utc.edu.vn</p>
+            </div>
+            <div class="footer-tech">
+                <p>Đề tài NCKH 2026 | Công nghệ: SNN · RAG · DepthAwareSNN · OpenCV</p>
+                <p>Robot EEEC Thị giác thông minh - Đại học Giao thông Vận tải</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        const video = document.getElementById('videoFeed');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const captureBtn = document.getElementById('captureBtn');
+        const detectionMode = document.getElementById('detectionMode');
+        const sensitivity = document.getElementById('sensitivity');
+        const cameraStatus = document.getElementById('cameraStatus');
+        const detectionStatus = document.getElementById('detectionStatus');
+        const fpsValue = document.getElementById('fpsValue');
+        const objectList = document.getElementById('objectList');
+        const objectCount = document.getElementById('objectCount');
+        const confidenceAvg = document.getElementById('confidenceAvg');
+        const processingTime = document.getElementById('processingTime');
+
+        let stream = null;
+        let animationId = null;
+        let lastTimestamp = 0;
+        let frameCount = 0;
+        let isDetecting = false;
+        let lastFrameTime = 0;
+        const FRAME_INTERVAL = 150;
+
+        async function detectObjects(imageBlob) {
+            try {
+                const formData = new FormData();
+                formData.append('image', imageBlob, 'frame.jpg');
+                formData.append('mode', detectionMode.value);
+                formData.append('sensitivity', sensitivity.value);
+
+                const startTime = performance.now();
+
+                const response = await fetch(`${API_URL}/api/vision/detect`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const elapsed = performance.now() - startTime;
+                processingTime.textContent = `${Math.round(elapsed)}ms`;
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateDetectionUI(data);
+                }
+            } catch (error) {
+                console.error('Detection error:', error);
+            }
+        }
+
+        function updateDetectionUI(data) {
+            if (!data || !data.objects) return;
+
+            const objects = data.objects;
+            objectCount.textContent = objects.length;
+
+            let totalConf = 0;
+            objects.forEach(obj => totalConf += obj.confidence || 0.5);
+            const avgConf = objects.length > 0 ? (totalConf / objects.length * 100).toFixed(1) : 0;
+            confidenceAvg.textContent = `${avgConf}%`;
+
+            if (objects.length > 0) {
+                objectList.innerHTML = objects.map(obj => `
+                    <li>
+                        <span class="object-name">${obj.name}</span>
+                        <span class="object-confidence">${Math.round((obj.confidence || 0.5) * 100)}%</span>
+                    </li>
+                `).join('');
+            } else {
+                objectList.innerHTML = '<li style="color:#8a92a8; text-align:center;">Không phát hiện</li>';
+            }
+
+            const modeText = { general: 'Tổng quát', face: 'Khuôn mặt', object: 'Vật thể', motion: 'Chuyển động' }[detectionMode.value];
+            detectionStatus.textContent = `${modeText} - ${objects.length} đối tượng`;
+        }
+
+        async function captureAndDetect() {
+            if (!video.videoWidth || !isDetecting) return;
+
+            const now = Date.now();
+            if (now - lastFrameTime < FRAME_INTERVAL) return;
+            lastFrameTime = now;
+
+            try {
+                const canvas = document.createElement('canvas');
+                canvas.width = 640;
+                canvas.height = 480;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.7));
+                await detectObjects(blob);
+            } catch (error) {
+                console.error('Capture error:', error);
+            }
+        }
+
+        function updateFPS(timestamp) {
+            if (!lastTimestamp) { lastTimestamp = timestamp; return; }
+            frameCount++;
+            const elapsed = timestamp - lastTimestamp;
+            if (elapsed >= 1000) {
+                fpsValue.textContent = Math.round((frameCount * 1000) / elapsed);
+                frameCount = 0;
+                lastTimestamp = timestamp;
+            }
+        }
+
+        function detectionLoop(timestamp) {
+            updateFPS(timestamp);
+            if (video.videoWidth > 0 && isDetecting) captureAndDetect();
+            animationId = requestAnimationFrame(detectionLoop);
+        }
+
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 } } });
+                video.srcObject = stream;
+                cameraStatus.textContent = 'Đang hoạt động';
+                detectionStatus.textContent = 'Đang phát hiện';
+                isDetecting = true;
+                animationId = requestAnimationFrame(detectionLoop);
+            } catch (error) {
+                cameraStatus.textContent = 'Lỗi';
+                alert('Không thể truy cập camera');
+            }
+        }
+
+        function stopCamera() {
+            isDetecting = false;
+            if (animationId) cancelAnimationFrame(animationId);
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                video.srcObject = null;
+            }
+            cameraStatus.textContent = 'Đã dừng';
+            detectionStatus.textContent = 'Dừng';
+        }
+
+        async function capturePhoto() {
+            if (!video.videoWidth) { alert('Camera chưa sẵn sàng'); return; }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg'));
+            detectionStatus.textContent = 'Đang nhận diện...';
+            await detectObjects(blob);
+
+            const link = document.createElement('a');
+            link.download = `capture_${Date.now()}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+
+            setTimeout(() => { if (isDetecting) detectionStatus.textContent = 'Đang phát hiện'; }, 1000);
+        }
+
+        startBtn.addEventListener('click', startCamera);
+        stopBtn.addEventListener('click', stopCamera);
+        captureBtn.addEventListener('click', capturePhoto);
+        detectionMode.addEventListener('change', () => { if (isDetecting) detectionStatus.textContent = 'Đã chuyển chế độ'; });
+        sensitivity.addEventListener('input', () => { if (isDetecting) detectionStatus.textContent = `Độ nhạy: ${sensitivity.value}%`; });
+
+        startCamera();
+    </script>
+</body>
+
+</html>

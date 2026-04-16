@@ -1,0 +1,225 @@
+/* ====== TEAM PAGE ====== */
+
+.team-hero {
+    background: linear-gradient(135deg, var(--utc-white) 0%, var(--utc-blue-light) 100%);
+    padding: 70px 80px;
+    text-align: center;
+    border-bottom: 1px solid #dce8f5;
+}
+
+.team-hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.team-hero-content p { color: #666; font-size: 1rem; }
+
+/* Team section */
+.team-section {
+    padding: 55px 80px;
+    background: var(--utc-white);
+}
+
+.team-section:nth-child(even) { background: var(--utc-gray); }
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.advisors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+/* Cards */
+.team-card {
+    display: flex;
+    gap: 22px;
+    background: var(--utc-white);
+    border-radius: 20px;
+    padding: 24px;
+    transition: all 0.3s;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,102,179,0.12);
+    border-color: var(--utc-yellow);
+}
+
+.advisor-card {
+    background: linear-gradient(135deg, #fff 0%, var(--utc-blue-light) 100%);
+    border-left: 5px solid var(--utc-yellow);
+}
+
+.team-avatar { position: relative; flex-shrink: 0; }
+
+.team-avatar img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--utc-yellow);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    background: var(--utc-gray);
+}
+
+.avatar-initial {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--utc-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--utc-white);
+    background: var(--gradient-blue);
+    box-shadow: 0 5px 15px rgba(0,102,179,0.25);
+    flex-shrink: 0;
+}
+
+.avatar-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    background: var(--gradient-gold);
+    color: var(--utc-blue-dark);
+    padding: 3px 9px;
+    border-radius: 15px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.team-info { flex: 1; min-width: 0; }
+
+.team-info h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--utc-blue);
+    margin-bottom: 4px;
+}
+
+.team-role {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--utc-yellow-dark);
+    margin-bottom: 4px;
+}
+
+.team-department {
+    font-size: 0.78rem;
+    color: #666;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.team-detail {
+    font-size: 0.78rem;
+    color: #555;
+    margin: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.team-detail .detail-icon { flex-shrink: 0; }
+
+.team-expertise, .team-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.expertise-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--utc-blue-light);
+    color: var(--utc-blue);
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--utc-white);
+    border: 1px solid var(--utc-yellow);
+    color: var(--utc-blue-dark);
+    border-radius: 15px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.skill-tag:hover {
+    background: var(--utc-yellow);
+    color: var(--utc-blue-dark);
+}
+
+/* Tech stack */
+.tech-section {
+    padding: 60px 80px;
+    background: var(--utc-blue);
+}
+
+.tech-section .section-tag {
+    background: rgba(255,215,0,0.2);
+    color: var(--utc-yellow);
+}
+
+.tech-section .section-header h2 { color: var(--utc-white); }
+.tech-section .section-header p { color: rgba(255,255,255,0.7); }
+
+.tech-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    padding: 9px 22px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 40px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--utc-white);
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.tech-item:hover {
+    background: var(--utc-yellow);
+    color: var(--utc-blue-dark);
+    border-color: var(--utc-yellow);
+    transform: scale(1.06);
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .team-hero { padding: 40px 20px; }
+    .team-hero-content h1 { font-size: 2rem; }
+    .team-section { padding: 35px 20px; }
+    .team-grid, .advisors-grid { grid-template-columns: 1fr; }
+    .team-card { flex-direction: column; align-items: center; text-align: center; }
+    .team-detail { justify-content: center; }
+    .team-skills, .team-expertise { justify-content: center; }
+    .tech-section { padding: 40px 20px; }
+}

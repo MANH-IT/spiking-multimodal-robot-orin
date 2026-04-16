@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức - Robot EEEC Đại học Giao thông Vận tải</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset và biến màu */
+        :root {
+            --utc-blue: #0099ff;
+            --utc-yellow: #ffdd44;
+            --utc-dark: #0a0e1a;
+            --utc-gray: #1a1f2e;
+            --utc-light: #e8edf5;
+            --gradient-blue: linear-gradient(135deg, #0099ff, #0066cc);
+            --gradient-gold: linear-gradient(135deg, #ffdd44, #ffaa00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--utc-dark);
+            color: var(--utc-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-brand small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--utc-yellow);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #b0b8cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--utc-yellow);
+            text-shadow: 0 0 5px rgba(255, 221, 68, 0.5);
+        }
+
+        .nav-item.active .nav-link {
+            color: var(--utc-yellow);
+            border-bottom: 2px solid var(--utc-yellow);
+        }
+
+        .status-badge {
+            background: rgba(0, 204, 0, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            color: #00ff88;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* News Main */
+        .news-main {
+            padding: 2rem 5%;
+            min-height: calc(100vh - 160px);
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .news-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-header p {
+            color: #8a92a8;
+            font-size: 1rem;
+        }
+
+        /* Categories */
+        .news-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            color: #b0b8cc;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cat-btn:hover {
+            background: rgba(0, 153, 255, 0.2);
+            border-color: var(--utc-blue);
+            color: white;
+        }
+
+        .cat-btn.active {
+            background: var(--gradient-blue);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-card {
+            background: rgba(26, 31, 46, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 153, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 153, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .news-category-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-gold);
+            color: var(--utc-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: #8a92a8;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .news-summary {
+            font-size: 0.9rem;
+            color: #b0b8cc;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .news-readmore {
+            color: var(--utc-yellow);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .news-readmore:hover {
+            gap: 0.5rem;
+            color: #ffdd44;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #8a92a8;
+        }
+
+        /* News Footer */
+        .news-footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+            margin-top: 1rem;
+        }
+
+        .refresh-btn {
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 221, 68, 0.2);
+            border-color: var(--utc-yellow);
+            transform: scale(1.02);
+        }
+
+        .last-updated {
+            font-size: 0.75rem;
+            color: #5a6278;
+        }
+
+        /* Modal Detail */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--utc-gray);
+            border-radius: 24px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--utc-yellow);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--utc-yellow);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-date {
+            font-size: 0.8rem;
+            color: #8a92a8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-category {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: var(--utc-dark);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content-text {
+            color: #b0b8cc;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #070b14, #0a0e1a);
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info,
+        .footer-tech {
+            flex: 1;
+        }
+
+        .footer-info p,
+        .footer-tech p {
+            margin-bottom: 0.5rem;
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .footer-info p strong {
+            color: var(--utc-yellow);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--utc-blue), var(--utc-yellow));
+            border-radius: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-categories {
+                gap: 0.5rem;
+            }
+
+            .cat-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo"
+                style="width:48px;height:48px;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 2px var(--utc-yellow);">
+                <img src="/assets/images/logo.png" alt="Logo Đại học Giao thông Vận tải"
+                    style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <span>Robot EEEC<small>Đại học Giao thông Vận tải</small></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="/chat" class="nav-link">Trò chuyện</a></li>
+            <li class="nav-item"><a href="/camera" class="nav-link">Thị giác</a></li>
+            <li class="nav-item"><a href="/map" class="nav-link">Bản đồ</a></li>
+            <li class="nav-item active"><a href="/news" class="nav-link">Tin tức</a></li>
+            <li class="nav-item"><a href="/team" class="nav-link">Đội ngũ</a></li>
+        </ul>
+        <div class="nav-status">
+            <span class="status-badge">SNN : ONLINE</span>
+        </div>
+    </nav>
+
+    <main class="news-main">
+        <div class="news-header">
+            <h1>Tin tức - Sự kiện</h1>
+            <p>Trường Đại học Giao thông Vận tải</p>
+        </div>
+
+        <div class="news-categories">
+            <button class="cat-btn active" data-category="all">Tất cả</button>
+            <button class="cat-btn" data-category="đào tạo">Đào tạo</button>
+            <button class="cat-btn" data-category="công nghệ">Công nghệ</button>
+            <button class="cat-btn" data-category="sự kiện">Sự kiện</button>
+            <button class="cat-btn" data-category="hợp tác">Hợp tác</button>
+            <button class="cat-btn" data-category="nghiên cứu">Nghiên cứu</button>
+        </div>
+
+        <div class="news-grid" id="newsGrid">
+            <div class="loading">Đang tải tin tức...</div>
+        </div>
+
+        <div class="news-footer">
+            <button id="refreshNewsBtn" class="refresh-btn">Cập nhật tin tức</button>
+            <p class="last-updated" id="lastUpdated"></p>
+        </div>
+    </main>
+
+    <!-- Modal Detail -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <span class="modal-category" id="modalCategory"></span>
+                    <div class="modal-date" id="modalDate"></div>
+                </div>
+                <div class="modal-content-text" id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Đại học Giao thông Vận tải</strong></p>
+                <p>Số 3 Phố Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội</p>
+                <p>(024) 3766 1234 | contact@utc.edu.vn</p>
+            </div>
+            <div class="footer-tech">
+                <p>Đề tài NCKH 2026 | Công nghệ: SNN · RAG · Web Scraping · FastAPI</p>
+                <p>Robot EEEC Tin tức thông minh - Đại học Giao thông Vận tải</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dữ liệu tin tức mẫu
+        const newsData = [
+            {
+                id: 1,
+                title: "Khởi động dự án Robot EEEC Giao tiếp Thông minh",
+                category: "công nghệ",
+                date: "15/04/2026",
+                summary: "Trường Đại học Giao thông Vận tải chính thức khởi động dự án nghiên cứu Robot EEEC ứng dụng Spiking Neural Networks (SNN) trong giao tiếp và phục vụ thông minh.",
+                content: "Dự án do nhóm nghiên cứu Khoa Công nghệ thông tin thực hiện, với sự tài trợ từ Bộ Giáo dục và Đào tạo. Robot EEEC được kỳ vọng sẽ trở thành trợ lý thông minh cho sinh viên và giảng viên trong trường. Dự án sử dụng công nghệ SNN tiết kiệm năng lượng, kết hợp với RAG và xử lý ngôn ngữ tự nhiên tiên tiến.",
+                image: "https://picsum.photos/400/200?random=1"
+            },
+            {
+                id: 2,
+                title: "Hội thảo 'AI trong Giáo dục và Giao thông vận tải'",
+                category: "sự kiện",
+                date: "10/04/2026",
+                summary: "Hội thảo khoa học với sự tham gia của các chuyên gia AI từ Nhật Bản, Hàn Quốc và Việt Nam.",
+                content: "Hội thảo diễn ra trong 2 ngày với các bài thuyết trình về ứng dụng AI trong quản lý giao thông, robot phục vụ và đào tạo nguồn nhân lực. Đặc biệt, Robot EEEC đã được giới thiệu và trình diễn tại hội thảo.",
+                image: "https://picsum.photos/400/200?random=2"
+            },
+            {
+                id: 3,
+                title: "Tuyển sinh Chương trình đào tạo Công nghệ thông tin chất lượng cao",
+                category: "đào tạo",
+                date: "05/04/2026",
+                summary: "Chương trình đào tạo Kỹ sư CNTT chuyên sâu về AI và Robotics, chỉ tiêu 100 sinh viên.",
+                content: "Chương trình đào tạo theo chuẩn quốc tế, tập trung vào các lĩnh vực: Trí tuệ nhân tạo, Học máy, Robot học, Thị giác máy tính. Học bổng toàn phần cho 10 sinh viên xuất sắc. Hạn nộp hồ sơ: 30/06/2026.",
+                image: "https://picsum.photos/400/200?random=3"
+            },
+            {
+                id: 4,
+                title: "Hợp tác quốc tế với Đại học Công nghệ Tokyo",
+                category: "hợp tác",
+                date: "28/03/2026",
+                summary: "Ký kết biên bản ghi nhớ hợp tác đào tạo và nghiên cứu về Robot và AI.",
+                content: "Chương trình trao đổi sinh viên và giảng viên, nghiên cứu chung về Spiking Neural Networks. Dự kiến sẽ có 5 suất học bổng toàn phần cho sinh viên xuất sắc sang Nhật Bản học tập.",
+                image: "https://picsum.photos/400/200?random=4"
+            },
+            {
+                id: 5,
+                title: "Demo Robot EEEC tại Ngày hội Công nghệ UTC 2026",
+                category: "sự kiện",
+                date: "20/03/2026",
+                summary: "Robot EEEC Đại học Giao thông Vận tải lần đầu tiên được giới thiệu trước công chúng.",
+                content: "Robot có khả năng trả lời câu hỏi, chỉ đường trong tòa nhà 15 tầng và nhận diện vật thể qua camera. Sự kiện thu hút hơn 500 sinh viên và giảng viên tham gia.",
+                image: "https://picsum.photos/400/200?random=5"
+            },
+            {
+                id: 6,
+                title: "Cập nhật chương trình đào tạo ngành AI",
+                category: "đào tạo",
+                date: "15/03/2026",
+                summary: "Bổ sung các môn học: Spiking Neural Networks, Robot học, Thị giác máy tính nâng cao.",
+                content: "Áp dụng từ năm học 2026-2027 cho sinh viên năm thứ 3. Giảng viên được đào tạo bài bản từ các chuyên gia hàng đầu.",
+                image: "https://picsum.photos/400/200?random=6"
+            },
+            {
+                id: 7,
+                title: "Nghiên cứu mới về SNN được công bố trên tạp chí quốc tế",
+                category: "nghiên cứu",
+                date: "10/03/2026",
+                summary: "Nhóm nghiên cứu Robot EEEC công bố kết quả nghiên cứu về Spiking Neural Networks.",
+                content: "Bài báo được đăng trên tạp chí IEEE Transactions on Neural Networks, với chỉ số ảnh hưởng cao. Nghiên cứu đề xuất kiến trúc mới giúp tiết kiệm 88% năng lượng so với mạng nơ-ron truyền thống.",
+                image: "https://picsum.photos/400/200?random=7"
+            },
+            {
+                id: 8,
+                title: "Lễ trao học bổng cho sinh viên xuất sắc",
+                category: "sự kiện",
+                date: "05/03/2026",
+                summary: "50 sinh viên có thành tích học tập xuất sắc được nhận học bổng từ quỹ phát triển tài năng.",
+                content: "Tổng giá trị học bổng lên đến 500 triệu đồng. Đây là hoạt động thường niên nhằm khuyến khích tinh thần học tập của sinh viên.",
+                image: "https://picsum.photos/400/200?random=8"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let newsGrid = document.getElementById('newsGrid');
+        let lastUpdatedSpan = document.getElementById('lastUpdated');
+
+        // Cập nhật thời gian
+        function updateLastUpdatedTime() {
+            const now = new Date();
+            const formattedTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')} - ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+            if (lastUpdatedSpan) {
+                lastUpdatedSpan.textContent = `Cập nhật lúc: ${formattedTime}`;
+            }
+        }
+
+        // Lấy nhãn category
+        function getCategoryLabel(category) {
+            const labels = {
+                'đào tạo': 'Đào tạo',
+                'công nghệ': 'Công nghệ',
+                'sự kiện': 'Sự kiện',
+                'hợp tác': 'Hợp tác',
+                'nghiên cứu': 'Nghiên cứu',
+                'all': 'Tất cả'
+            };
+            return labels[category] || category;
+        }
+
+        // Hiển thị tin tức
+        function displayNews() {
+            let filteredNews = newsData;
+            if (currentCategory !== 'all') {
+                filteredNews = newsData.filter(news =>
+                    news.category && news.category.toLowerCase() === currentCategory.toLowerCase()
+                );
+            }
+
+            if (filteredNews.length === 0) {
+                newsGrid.innerHTML = `
+                    <div class="loading">
+                        <p>Chưa có tin tức nào trong mục này.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            newsGrid.innerHTML = filteredNews.map(news => `
+                <div class="news-card" onclick="showNewsDetail(${news.id})">
+                    <div class="news-image" style="background-image: url('${news.image}')">
+                        <span class="news-category-tag">${getCategoryLabel(news.category)}</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">${escapeHtml(news.title)}</h3>
+                        <div class="news-date">📅 ${news.date}</div>
+                        <p class="news-summary">${escapeHtml(news.summary)}</p>
+                        <span class="news-readmore">Đọc thêm →</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Hiển thị chi tiết tin tức
+        function showNewsDetail(id) {
+            const news = newsData.find(n => n.id === id);
+            if (news) {
+                document.getElementById('modalTitle').textContent = news.title;
+                document.getElementById('modalCategory').textContent = getCategoryLabel(news.category);
+                document.getElementById('modalDate').textContent = news.date;
+                document.getElementById('modalContent').innerHTML = `<p>${escapeHtml(news.content)}</p>`;
+                document.getElementById('newsModal').classList.add('active');
+            }
+        }
+
+        // Đóng modal
+        function closeModal() {
+            document.getElementById('newsModal').classList.remove('active');
+        }
+
+        // Làm mới tin tức
+        function refreshNews() {
+            const refreshBtn = document.getElementById('refreshNewsBtn');
+            refreshBtn.textContent = 'Đang cập nhật...';
+            refreshBtn.disabled = true;
+
+            setTimeout(() => {
+                displayNews();
+                updateLastUpdatedTime();
+                refreshBtn.textContent = 'Cập nhật tin tức';
+                refreshBtn.disabled = false;
+            }, 500);
+        }
+
+        // Xử lý chuyển category
+        function setupCategoryListeners() {
+            const categoryBtns = document.querySelectorAll('.cat-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.getAttribute('data-category');
+                    displayNews();
+                });
+            });
+        }
+
+        // Đóng modal khi click outside
+        document.getElementById('newsModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Khởi tạo
+        function init() {
+            displayNews();
+            setupCategoryListeners();
+            updateLastUpdatedTime();
+
+            const refreshBtn = document.getElementById('refreshNewsBtn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', refreshNews);
+            }
+        }
+
+        // Chạy khi trang load
+        init();
+    </script>
+</body>
+
+</html>

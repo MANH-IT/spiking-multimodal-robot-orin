@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò chuyện với Robot EEEC - Đại học Giao thông Vận tải</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset và biến màu */
+        :root {
+            --utc-blue: #0099ff;
+            --utc-yellow: #ffdd44;
+            --utc-dark: #0a0e1a;
+            --utc-gray: #1a1f2e;
+            --utc-light: #e8edf5;
+            --gradient-blue: linear-gradient(135deg, #0099ff, #0066cc);
+            --gradient-gold: linear-gradient(135deg, #ffdd44, #ffaa00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--utc-dark);
+            color: var(--utc-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-brand small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--utc-yellow);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #b0b8cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--utc-yellow);
+            text-shadow: 0 0 5px rgba(255, 221, 68, 0.5);
+        }
+
+        .nav-item.active .nav-link {
+            color: var(--utc-yellow);
+            border-bottom: 2px solid var(--utc-yellow);
+        }
+
+        .status-badge {
+            background: rgba(0, 204, 0, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            color: #00ff88;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* Chat Container */
+        .chat-main {
+            padding: 2rem 5%;
+            min-height: calc(100vh - 160px);
+        }
+
+        .chat-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(26, 31, 46, 0.5);
+            border-radius: 24px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 153, 255, 0.1);
+            min-height: 600px;
+        }
+
+        /* Sidebar */
+        .chat-sidebar {
+            width: 300px;
+            background: rgba(10, 14, 26, 0.8);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border-right: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .chat-info {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .robot-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--utc-yellow);
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+        }
+
+        .robot-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .chat-info p {
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .chat-suggestions h4 {
+            font-size: 0.9rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .suggestion-btn {
+            display: block;
+            width: 100%;
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.7rem;
+            border-radius: 12px;
+            color: #c0c8dc;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .suggestion-btn:hover {
+            background: rgba(255, 221, 68, 0.1);
+            border-color: var(--utc-yellow);
+            color: var(--utc-yellow);
+            transform: translateX(5px);
+        }
+
+        .chat-stats {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+            margin-top: auto;
+        }
+
+        .chat-stats div {
+            font-size: 0.85rem;
+            color: #8a92a8;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-value {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
+        /* Main Chat Area */
+        .chat-main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .clear-btn {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            color: #ff6666;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .clear-btn:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Chat Messages */
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 500px;
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+        }
+
+        .message.robot {
+            align-self: flex-start;
+        }
+
+        .message-content {
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .message.user .message-content {
+            background: var(--gradient-blue);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.robot .message-content {
+            background: rgba(30, 40, 60, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            color: #e0e5f0;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Inter', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+        }
+
+        .message.robot strong {
+            color: var(--utc-yellow);
+            font-weight: 700;
+        }
+
+        .message-content ul {
+            margin: 8px 0 8px 20px;
+            padding: 0;
+        }
+
+        .message-content li {
+            margin: 5px 0;
+            list-style-type: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .message-content li:before {
+            content: "•";
+            color: var(--utc-yellow);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .message-content hr {
+            margin: 12px 0;
+            border: none;
+            border-top: 1px solid rgba(0,153,255,0.2);
+        }
+
+        .message-content ul {
+            margin: 0.5rem 0 0 1.5rem;
+        }
+
+        .message-content li {
+            margin: 0.3rem 0;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #5a6278;
+            margin-top: 0.3rem;
+            padding: 0 0.5rem;
+        }
+
+        .message.user .message-time {
+            text-align: right;
+        }
+
+        /* Chat Input */
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .voice-btn,
+        .send-btn {
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .voice-btn:hover,
+        .send-btn:hover {
+            background: rgba(255, 221, 68, 0.2);
+            border-color: var(--utc-yellow);
+            transform: scale(1.05);
+        }
+
+        #textInput {
+            flex: 1;
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.8rem 1.2rem;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        #textInput:focus {
+            border-color: var(--utc-blue);
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.3);
+        }
+
+        #textInput::placeholder {
+            color: #5a6278;
+        }
+
+        /* Attachment Preview */
+        .attachment-preview {
+            display: none;
+            position: relative;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        .attachment-preview img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--utc-blue);
+        }
+
+        .remove-attachment {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message-image {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Camera Modal */
+        .camera-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .camera-view {
+            width: 90%;
+            max-width: 640px;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--utc-blue);
+            position: relative;
+        }
+
+        #cameraStream {
+            width: 100%;
+            display: block;
+        }
+
+        .camera-controls {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cam-btn {
+            background: var(--utc-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cam-btn.cancel {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cam-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--utc-blue);
+        }
+
+        .voice-status {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #8a92a8;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #070b14, #0a0e1a);
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info,
+        .footer-tech {
+            flex: 1;
+        }
+
+        .footer-info p,
+        .footer-tech p {
+            margin-bottom: 0.5rem;
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .footer-info p strong {
+            color: var(--utc-yellow);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--utc-blue), var(--utc-yellow));
+            border-radius: 5px;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--utc-yellow);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        /* Voice wave animation */
+        @keyframes pulseVoice {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 221, 68, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 221, 68, 0);
+                transform: scale(1.1);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 221, 68, 0);
+                transform: scale(1);
+            }
+        }
+
+        .voice-btn.listening {
+            animation: pulseVoice 1.5s infinite;
+            background: rgba(255, 221, 68, 0.3) !important;
+            border-color: #ffdd44 !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-container {
+                flex-direction: column;
+            }
+
+            .chat-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+            }
+
+            .message {
+                max-width: 95%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo"
+                style="width:48px;height:48px;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 2px var(--utc-yellow);">
+                <img src="/assets/images/logo.png" alt="Logo Đại học Giao thông Vận tải"
+                    style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <span>Robot EEEC<small>Đại học Giao thông Vận tải</small></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item active"><a href="/chat" class="nav-link">Trò chuyện</a></li>
+            <li class="nav-item"><a href="/camera" class="nav-link">Thị giác</a></li>
+            <li class="nav-item"><a href="/map" class="nav-link">Bản đồ</a></li>
+            <li class="nav-item"><a href="/news" class="nav-link">Tin tức</a></li>
+            <li class="nav-item"><a href="/team" class="nav-link">Đội ngũ</a></li>
+        </ul>
+        <div class="nav-status">
+            <span class="status-badge">SNN : ONLINE</span>
+        </div>
+    </nav>
+
+    <main class="chat-main">
+        <div class="chat-container">
+            <div class="chat-sidebar">
+                <div class="chat-info">
+                    <div class="robot-avatar">
+                        <img src="/assets/images/logo.png" alt="Robot EEEC">
+                    </div>
+                    <h3>Robot EEEC</h3>
+                    <p>Trợ lý thông minh 24/7</p>
+                </div>
+                <div class="chat-suggestions">
+                    <h4>Gợi ý câu hỏi</h4>
+                    <button class="suggestion-btn">phòng 301 ở đâu</button>
+                    <button class="suggestion-btn">trường đại học giao thông vận tải thành lập năm nào</button>
+                    <button class="suggestion-btn">khoa công nghệ thông tin ở đâu</button>
+                    <button class="suggestion-btn">có tin tức gì mới</button>
+                    <button class="suggestion-btn">chỉ đường đến thư viện</button>
+                </div>
+                <div class="chat-stats">
+                    <div>SNN: <span class="stat-value">ONLINE</span></div>
+                    <div>RAG: <span class="stat-value">READY</span></div>
+                    <div>ASR: <span class="stat-value">FPT</span></div>
+                    <div>LLM: <span class="stat-value">ACTIVE</span></div>
+                </div>
+            </div>
+
+            <div class="chat-main-area">
+                <div class="chat-header">
+                    <h3>Trò chuyện với Robot EEEC</h3>
+                    <button id="clearChatBtn" class="clear-btn">Xóa lịch sử</button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message robot">
+                        <div class="message-content">
+                            Xin chào! Tôi là Robot EEEC, trợ lý thông minh của Đại học Giao thông Vận tải.<br>
+                            Tôi có thể:
+                            <ul>
+                                <li>Chỉ đường trong tòa nhà 15 tầng</li>
+                                <li>Trả lời câu hỏi về trường</li>
+                                <li>Cập nhật tin tức mới nhất</li>
+                                <li>Nhận diện vật thể qua camera</li>
+                            </ul>
+                            Hãy hỏi tôi bất cứ điều gì!
+                        </div>
+                        <div class="message-time">Vừa xong</div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <div id="attachmentPreview" class="attachment-preview">
+                        <img id="previewImg" src="" alt="Capture">
+                        <button class="remove-attachment" id="removeAttachmentBtn">×</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <button id="camBtn" class="voice-btn" title="Chụp ảnh vật thể">📷</button>
+                        <button id="voiceBtn" class="voice-btn">🎤</button>
+                        <input type="text" id="textInput" placeholder="Nhập câu hỏi hoặc chụp ảnh vật thể..." autocomplete="off">
+                        <button id="sendBtn" class="send-btn">📤</button>
+                    </div>
+                    <div id="voiceStatus" class="voice-status"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Camera Modal -->
+    <div id="cameraModal" class="camera-modal">
+        <div class="camera-view">
+            <video id="cameraStream" autoplay playsinline></video>
+        </div>
+        <div class="camera-controls">
+            <button id="captureBtn" class="cam-btn">📸 Chụp ảnh</button>
+            <button id="closeCamBtn" class="cam-btn cancel">Đóng</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Đại học Giao thông Vận tải</strong></p>
+                <p>Số 3 Phố Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội</p>
+                <p>(024) 3766 1234 | contact@utc.edu.vn</p>
+            </div>
+            <div class="footer-tech">
+                <p>Đề tài NCKH 2026 | Công nghệ: SNN · RAG · Graph-based Parsing · snntorch · FastAPI</p>
+                <p>Robot EEEC Giao tiếp Thông minh - Đại học Giao thông Vận tải</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== VOICE MODULE ====================
+        // Cấu hình voice
+        const VOICE_CONFIG = {
+            API_URL: 'http://localhost:8000',
+            LANG: 'vi-VN',
+            AUTO_SEND: true,
+            CONTINUOUS: false,
+            INTERIM_RESULTS: false,
+            TTS_VOLUME: 1,
+            TTS_RATE: 0.9,     // Slightly slower for better naturalness
+            TTS_PITCH: 1.05    // Subtle pitch lift for a friendlier tone
+        };
+
+        let voiceState = {
+            isListening: false,
+            isSpeaking: false,
+            recognition: null,
+            synthesis: null,
+            selectedVoice: null,
+            supported: { recognition: false, synthesis: false },
+            transcript: ''
+        };
+
+        // Khởi tạo voice
+        function initVoice() {
+            // Speech Recognition
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+                voiceState.recognition = new SpeechRecognition();
+                voiceState.recognition.lang = VOICE_CONFIG.LANG;
+                voiceState.recognition.continuous = VOICE_CONFIG.CONTINUOUS;
+                voiceState.recognition.interimResults = VOICE_CONFIG.INTERIM_RESULTS;
+                voiceState.supported.recognition = true;
+                setupRecognitionEvents();
+            } else {
+                console.warn('Speech Recognition not supported');
+                const voiceBtn = document.getElementById('voiceBtn');
+                if (voiceBtn) {
+                    voiceBtn.style.opacity = '0.5';
+                    voiceBtn.title = 'Trình duyệt không hỗ trợ nhận diện giọng nói';
+                }
+            }
+
+            // Speech Synthesis
+            if ('speechSynthesis' in window) {
+                voiceState.synthesis = window.speechSynthesis;
+                voiceState.supported.synthesis = true;
+                loadVoices();
+            } else {
+                console.warn('Speech Synthesis not supported');
+            }
+        }
+
+        function loadVoices() {
+            const voices = window.speechSynthesis.getVoices();
+            // Lọc ra danh sách giọng tiếng Việt và sắp xếp theo ưu tiên
+            const viVoices = voices.filter(v => v.lang.includes('vi') || v.lang.includes('VI'));
+            
+            if (viVoices.length > 0) {
+                // Thứ tự ưu tiên: Microsoft HoaiMy (Windows 10/11) -> Google Vietnamese -> Giọng tiếng Việt bất kỳ
+                voiceState.selectedVoice = 
+                    viVoices.find(v => v.name.includes('HoaiMy')) || 
+                    viVoices.find(v => v.name.includes('Google')) || 
+                    viVoices.find(v => v.name.includes('Vietnamese')) || 
+                    viVoices[0];
+            } else {
+                voiceState.selectedVoice = voices[0];
+            }
+            console.log('Đã chọn giọng:', voiceState.selectedVoice ? voiceState.selectedVoice.name : 'Mặc định');
+        }
+
+        if (voiceState.synthesis) {
+            // Chrome cần onvoiceschanged để load voices
+            voiceState.synthesis.onvoiceschanged = loadVoices;
+            loadVoices();
+        }
+
+        function setupRecognitionEvents() {
+            if (!voiceState.recognition) return;
+
+            voiceState.recognition.onstart = () => {
+                voiceState.isListening = true;
+                updateVoiceUI(true);
+            };
+
+            voiceState.recognition.onend = () => {
+                voiceState.isListening = false;
+                updateVoiceUI(false);
+
+                if (VOICE_CONFIG.AUTO_SEND && voiceState.transcript.trim()) {
+                    sendMessage(voiceState.transcript);
+                    voiceState.transcript = '';
+                }
+            };
+
+            voiceState.recognition.onresult = (event) => {
+                let finalTranscript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    if (event.results[i].isFinal) {
+                        finalTranscript += event.results[i][0].transcript;
+                    }
+                }
+
+                if (finalTranscript) {
+                    voiceState.transcript = finalTranscript;
+                    updateVoiceStatus(`Đã nhận diện: ${finalTranscript}`, 'success');
+                    document.getElementById('textInput').value = finalTranscript;
+                }
+            };
+
+            voiceState.recognition.onerror = (event) => {
+                console.error('Recognition error:', event.error);
+                let errorMessage = 'Không thể nhận diện giọng nói';
+                if (event.error === 'no-speech') errorMessage = 'Không phát hiện giọng nói';
+                else if (event.error === 'audio-capture') errorMessage = 'Không thể truy cập microphone';
+                else if (event.error === 'not-allowed') errorMessage = 'Vui lòng cho phép truy cập microphone';
+
+                updateVoiceStatus(errorMessage, 'error');
+                voiceState.isListening = false;
+                updateVoiceUI(false);
+            };
+        }
+
+        function updateVoiceUI(isListening) {
+            const voiceBtn = document.getElementById('voiceBtn');
+            if (voiceBtn) {
+                if (isListening) {
+                    voiceBtn.classList.add('listening');
+                    voiceBtn.style.background = 'rgba(255, 221, 68, 0.3)';
+                    voiceBtn.style.borderColor = '#ffdd44';
+                } else {
+                    voiceBtn.classList.remove('listening');
+                    voiceBtn.style.background = 'rgba(0, 153, 255, 0.1)';
+                    voiceBtn.style.borderColor = 'rgba(0, 153, 255, 0.3)';
+                }
+            }
+
+            if (isListening) {
+                updateVoiceStatus('🎤 Đang nghe...', 'info');
+            }
+        }
+
+        function updateVoiceStatus(message, type = 'info') {
+            const voiceStatus = document.getElementById('voiceStatus');
+            if (!voiceStatus) return;
+
+            voiceStatus.textContent = message;
+
+            const colors = { info: '#8a92a8', success: '#00ff88', error: '#ff6666', warning: '#ffaa00' };
+            voiceStatus.style.color = colors[type] || colors.info;
+
+            if (type !== 'info') {
+                setTimeout(() => {
+                    if (voiceStatus.textContent === message) {
+                        voiceStatus.textContent = '';
+                    }
+                }, 3000);
+            }
+        }
+
+        function startListening() {
+            if (!voiceState.supported.recognition) {
+                updateVoiceStatus('Trình duyệt không hỗ trợ nhận diện giọng nói', 'error');
+                return;
+            }
+
+            if (voiceState.isListening) {
+                voiceState.recognition.stop();
+                return;
+            }
+
+            try {
+                voiceState.recognition.start();
+            } catch (error) {
+                console.error('Cannot start recognition:', error);
+                updateVoiceStatus('Không thể khởi động nhận diện', 'error');
+            }
+        }
+
+        // Text to Speech - Gọi Google TTS từ server (giọng Việt tự nhiên)
+        let currentAudio = null;
+        
+        async function speakText(text) {
+            // Dừng audio đang phát nếu có
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            
+            try {
+                const response = await fetch(`${API_URL}/api/tts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: text })
+                });
+                
+                if (response.ok) {
+                    const audioBlob = await response.blob();
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    currentAudio = new Audio(audioUrl);
+                    currentAudio.playbackRate = 1.0;
+                    currentAudio.volume = 1.0;
+                    currentAudio.play();
+                    
+                    currentAudio.onended = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        currentAudio = null;
+                    };
+                } else {
+                    console.warn('TTS API error, falling back to browser TTS');
+                    speakTextFallback(text);
+                }
+            } catch (error) {
+                console.warn('TTS API unavailable:', error);
+                speakTextFallback(text);
+            }
+        }
+        
+        // Fallback: dùng giọng trình duyệt nếu server TTS lỗi
+        function speakTextFallback(text) {
+            if (!window.speechSynthesis) return;
+            const plainText = text.replace(/<[^>]*>/g, '').replace(/[\*\_]/g, '');
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(plainText);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.0;
+            const voices = window.speechSynthesis.getVoices();
+            const viVoice = voices.find(v => v.lang.includes('vi'));
+            if (viVoice) utterance.voice = viVoice;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function stopSpeaking() {
+            if (voiceState.synthesis && voiceState.isSpeaking) {
+                voiceState.synthesis.cancel();
+                voiceState.isSpeaking = false;
+            }
+        }
+
+        // ==================== CHAT FUNCTIONALITY ====================
+        const API_URL = 'http://localhost:8000';
+        let chatHistory = [];
+        let currentAttachment = null;
+
+        const chatMessages = document.getElementById('chatMessages');
+        const textInput = document.getElementById('textInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const voiceBtn = document.getElementById('voiceBtn');
+        const camBtn = document.getElementById('camBtn');
+        const clearChatBtn = document.getElementById('clearChatBtn');
+        
+        // Camera Elements
+        const cameraModal = document.getElementById('cameraModal');
+        const cameraStream = document.getElementById('cameraStream');
+        const captureBtn = document.getElementById('captureBtn');
+        const closeCamBtn = document.getElementById('closeCamBtn');
+        const attachmentPreview = document.getElementById('attachmentPreview');
+        const previewImg = document.getElementById('previewImg');
+        const removeAttachmentBtn = document.getElementById('removeAttachmentBtn');
+
+        // Camera Logic
+        camBtn.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                cameraStream.srcObject = stream;
+                cameraModal.style.display = 'flex';
+            } catch (err) {
+                alert('Không thể truy cập camera: ' + err.message);
+            }
+        });
+
+        function stopCamera() {
+            const stream = cameraStream.srcObject;
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            cameraModal.style.display = 'none';
+        }
+
+        closeCamBtn.addEventListener('click', stopCamera);
+
+        captureBtn.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = cameraStream.videoWidth;
+            canvas.height = cameraStream.videoHeight;
+            canvas.getContext('2d').drawImage(cameraStream, 0, 0);
+            
+            canvas.toBlob((blob) => {
+                currentAttachment = blob;
+                previewImg.src = URL.createObjectURL(blob);
+                attachmentPreview.style.display = 'block';
+                stopCamera();
+            }, 'image/jpeg');
+        });
+
+        removeAttachmentBtn.addEventListener('click', () => {
+            currentAttachment = null;
+            attachmentPreview.style.display = 'none';
+        });
+
+        // Load chat history
+        function loadChatHistory() {
+            const saved = localStorage.getItem('chatHistory');
+            if (saved) {
+                chatHistory = JSON.parse(saved);
+                renderMessages();
+            }
+        }
+
+        function saveChatHistory() {
+            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+
+        function addMessage(type, content, imageBlob = null) {
+            const now = new Date();
+            const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+            
+            let imageUrl = null;
+            if (imageBlob) {
+                imageUrl = URL.createObjectURL(imageBlob);
+            }
+
+            let formattedContent = content;
+            if (type === 'robot' && !content.includes('👋') && !content.includes('📍') && !content.includes('🏛️')) {
+                const low = content.toLowerCase();
+                if (low.includes('chào')) formattedContent = '👋 ' + content;
+                else if (low.includes('phòng') || low.includes('tầng')) formattedContent = '📍 ' + content;
+                else if (low.includes('trường') || low.includes('thành lập')) formattedContent = '🏛️ ' + content;
+                else if (low.includes('cảm ơn')) formattedContent = '🙏 ' + content;
+                else if (low.includes('tạm biệt')) formattedContent = '👋 ' + content;
+            }
+
+            let richContent = formattedContent
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n---\n/g, '<hr>')
+                .replace(/\n/g, '<br>');
+
+            chatHistory.push({ 
+                type: type, 
+                content: richContent, 
+                time: timeStr,
+                image: imageUrl 
+            });
+            saveChatHistory();
+            renderMessages();
+            
+            if (type === 'robot') {
+                speakText(content);
+            }
+        }
+
+        function renderMessages() {
+            chatMessages.innerHTML = '';
+            chatHistory.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${msg.type}`;
+                
+                let imageHtml = '';
+                if (msg.image) {
+                    imageHtml = `<img src="${msg.image}" class="message-image" alt="Attachment">`;
+                }
+
+                messageDiv.innerHTML = `
+                    <div class="message-content">
+                        ${imageHtml}
+                        ${msg.content}
+                    </div>
+                    <div class="message-time">${msg.time}</div>
+                `;
+                chatMessages.appendChild(messageDiv);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message robot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTyping() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        async function sendMessage(message) {
+            if (!message.trim() && !currentAttachment) return;
+
+            const savedAttachment = currentAttachment;
+            addMessage('user', message, savedAttachment);
+            
+            // Reset input and attachment
+            textInput.value = '';
+            currentAttachment = null;
+            attachmentPreview.style.display = 'none';
+            
+            showTyping();
+
+            try {
+                let response;
+                if (savedAttachment) {
+                    // Multimodal request
+                    const formData = new FormData();
+                    formData.append('text', message);
+                    formData.append('image', savedAttachment, 'capture.jpg');
+
+                    response = await fetch(`${API_URL}/api/multimodal/chat`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                } else {
+                    // Vision-only or NLP-only request
+                    response = await fetch(`${API_URL}/api/chat`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: message })
+                    });
+                }
+
+                if (response.ok) {
+                    const data = await response.json();
+                    hideTyping();
+                    addMessage('robot', data.response || 'Xin lỗi, tôi chưa hiểu câu hỏi của bạn!');
+                } else {
+                    throw new Error('API error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                hideTyping();
+
+                const fallbackResponses = {
+                    'phòng 301': 'Phòng 301 nằm ở tầng 3, khu A, dãy phòng bên trái cầu thang chính.',
+                    'thành lập': 'Đại học Giao thông Vận tải được thành lập năm 1945.',
+                    'khoa công nghệ thông tin': 'Khoa Công nghệ thông tin nằm tại tầng 5, tòa nhà A.',
+                    'thư viện': 'Thư viện nằm ở tầng 2, tòa nhà trung tâm.',
+                    'căn tin': 'Căn tin nằm ở tầng 1, cạnh sảnh chính.'
+                };
+
+                let reply = 'Xin lỗi, tôi đang gặp vấn đề kết nối. Vui lòng thử lại sau!';
+                for (const [key, value] of Object.entries(fallbackResponses)) {
+                    if (message.toLowerCase().includes(key)) {
+                        reply = value;
+                        break;
+                    }
+                }
+                addMessage('robot', reply);
+            }
+        }
+
+        // Event listeners
+        sendBtn.addEventListener('click', () => sendMessage(textInput.value));
+        textInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage(textInput.value);
+        });
+
+        voiceBtn.addEventListener('click', () => startListening());
+
+        clearChatBtn.addEventListener('click', () => {
+            chatHistory = [];
+            saveChatHistory();
+            renderMessages();
+            addMessage('robot', 'Đã xóa lịch sử trò chuyện. Tôi vẫn sẵn sàng giúp đỡ bạn!');
+        });
+
+        document.querySelectorAll('.suggestion-btn').forEach(btn => {
+            btn.addEventListener('click', () => sendMessage(btn.textContent));
+        });
+
+        // Khởi tạo
+        initVoice();
+        loadChatHistory();
+
+        if (chatHistory.length === 0) {
+            addMessage('robot', 'Xin chào! Tôi là Robot EEEC, trợ lý thông minh của Đại học Giao thông Vận tải.<br><br>Tôi có thể:<br><ul><li>Chỉ đường trong tòa nhà 15 tầng</li><li>Trả lời câu hỏi về trường</li><li>Cập nhật tin tức mới nhất</li><li>Nhận diện vật thể qua camera</li></ul><br>Hãy hỏi tôi bất cứ điều gì!');
+        }
+    </script>
+</body>
+
+</html>

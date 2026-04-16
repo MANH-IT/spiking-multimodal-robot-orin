@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đội ngũ - Robot EEEC Đại học Giao thông Vận tải</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset và biến màu */
+        :root {
+            --utc-blue: #0099ff;
+            --utc-yellow: #ffdd44;
+            --utc-dark: #0a0e1a;
+            --utc-gray: #1a1f2e;
+            --utc-light: #e8edf5;
+            --gradient-blue: linear-gradient(135deg, #0099ff, #0066cc);
+            --gradient-gold: linear-gradient(135deg, #ffdd44, #ffaa00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--utc-dark);
+            color: var(--utc-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-brand small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--utc-yellow);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #b0b8cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--utc-yellow);
+            text-shadow: 0 0 5px rgba(255, 221, 68, 0.5);
+        }
+
+        .nav-item.active .nav-link {
+            color: var(--utc-yellow);
+            border-bottom: 2px solid var(--utc-yellow);
+        }
+
+        .status-badge {
+            background: rgba(0, 204, 0, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            color: #00ff88;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* Team Hero */
+        .team-hero {
+            text-align: center;
+            padding: 4rem 5% 2rem;
+            background: linear-gradient(135deg, rgba(0, 153, 255, 0.05), rgba(255, 221, 68, 0.02));
+        }
+
+        .badge {
+            background: rgba(0, 153, 255, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--utc-blue);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .team-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-blue {
+            background: linear-gradient(135deg, #0099ff, #33bbff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .highlight-gold {
+            background: linear-gradient(135deg, #ffdd44, #ffaa00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .team-hero p {
+            color: #8a92a8;
+            font-size: 1rem;
+        }
+
+        /* Team Section - 3 người cùng hàng */
+        .team-section {
+            padding: 3rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            background: rgba(0, 153, 255, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            color: var(--utc-blue);
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #8a92a8;
+        }
+
+        /* Team Grid - 3 cột trên desktop */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: rgba(26, 31, 46, 0.6);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 153, 255, 0.1);
+            backdrop-filter: blur(5px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 153, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Avatar */
+        .team-avatar {
+            position: relative;
+            height: 260px;
+            background: linear-gradient(135deg, var(--utc-gray), var(--utc-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-placeholder {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--utc-blue), var(--utc-yellow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--utc-dark);
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--gradient-gold);
+            color: var(--utc-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* Team Info */
+        .team-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .team-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            color: var(--utc-yellow);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-department {
+            color: #8a92a8;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-detail {
+            font-size: 0.75rem;
+            color: #b0b8cc;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .team-detail strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .team-expertise {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .expertise-tag {
+            background: rgba(0, 153, 255, 0.15);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            color: var(--utc-blue);
+        }
+
+        /* Advisor Card đặc biệt */
+        .advisor-card {
+            border-top: 3px solid var(--utc-yellow);
+        }
+
+        /* Tech Stack Section */
+        .tech-section {
+            padding: 4rem 5%;
+            background: rgba(0, 153, 255, 0.03);
+            margin-top: 2rem;
+        }
+
+        .tech-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            border-color: var(--utc-yellow);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #070b14, #0a0e1a);
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info,
+        .footer-tech {
+            flex: 1;
+        }
+
+        .footer-info p,
+        .footer-tech p {
+            margin-bottom: 0.5rem;
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .footer-info p strong {
+            color: var(--utc-yellow);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--utc-blue), var(--utc-yellow));
+            border-radius: 5px;
+        }
+
+        /* Responsive - xuống 2 cột rồi 1 cột */
+        @media (max-width: 1000px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo"
+                style="width:48px;height:48px;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 2px var(--utc-yellow);">
+                <img src="/assets/images/logo.png" alt="Logo Đại học Giao thông Vận tải"
+                    style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <span>Robot EEEC<small>Đại học Giao thông Vận tải</small></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="/chat" class="nav-link">Trò chuyện</a></li>
+            <li class="nav-item"><a href="/camera" class="nav-link">Thị giác</a></li>
+            <li class="nav-item"><a href="/map" class="nav-link">Bản đồ</a></li>
+            <li class="nav-item"><a href="/news" class="nav-link">Tin tức</a></li>
+            <li class="nav-item active"><a href="/team" class="nav-link">Đội ngũ</a></li>
+        </ul>
+        <div class="nav-status">
+            <span class="status-badge">SNN : ONLINE</span>
+        </div>
+    </nav>
+
+    <!-- Team Hero -->
+    <section class="team-hero">
+        <div class="team-hero-content">
+            <div><span class="badge">Đội ngũ thực hiện</span></div>
+            <h1>Những người <span class="highlight-blue">xây dựng</span><br><span class="highlight-gold">Robot
+                    EEEC</span></h1>
+            <p>Đề tài NCKH 2026 - Trường Đại học Giao thông Vận tải</p>
+        </div>
+    </section>
+
+    <!-- Team Grid - 3 người cùng hàng -->
+    <section class="team-section">
+        <div class="team-grid">
+            <!-- Giảng viên hướng dẫn -->
+            <div class="team-card advisor-card">
+                <div class="team-avatar">
+                    <img id="advisorAvatar" class="avatar-img" src="/assets/images/team/advisor.jpg"
+                        alt="PGS. TS. Trịnh Lương Miên"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder" style="display: none;">TS</div>
+                    <div class="avatar-badge">Hướng dẫn chính</div>
+                </div>
+                <div class="team-info">
+                    <h3>PGS. TS. Trịnh Lương Miên</h3>
+                    <div class="team-role">Giảng viên hướng dẫn chính</div>
+                    <div class="team-department">Khoa Công nghệ thông tin</div>
+                    <div class="team-detail"><strong>Chuyên ngành:</strong> Trí tuệ nhân tạo, Robotics</div>
+                    <div class="team-detail"><strong>Email:</strong> trinhlm@utc.edu.vn</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">Spiking Neural Networks</span>
+                        <span class="expertise-tag">Deep Learning</span>
+                        <span class="expertise-tag">Robot Học</span>
+                        <span class="expertise-tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhóm trưởng -->
+            <div class="team-card">
+                <div class="team-avatar">
+                    <img id="leaderAvatar" class="avatar-img" src="/assets/images/team/leader.jpg" alt="Phan Đình Mạnh"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder" style="display: none;">PM</div>
+                    <div class="avatar-badge">Nhóm trưởng</div>
+                </div>
+                <div class="team-info">
+                    <h3>Phan Đình Mạnh</h3>
+                    <div class="team-role">Trưởng nhóm phát triển</div>
+                    <div class="team-department">Kỹ thuật Robot và Trí tuệ nhân tạo K64</div>
+                    <div class="team-detail"><strong>MSSV:</strong> 642101</div>
+                    <div class="team-detail"><strong>Email:</strong> phandinhmanh@utc.edu.vn</div>
+                    <div class="team-detail"><strong>Phụ trách:</strong> NLP System, RAG, SpikingLanguageModel, Backend
+                        API</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">Python</span>
+                        <span class="expertise-tag">PyTorch</span>
+                        <span class="expertise-tag">snntorch</span>
+                        <span class="expertise-tag">FastAPI</span>
+                        <span class="expertise-tag">LangChain</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thành viên -->
+            <div class="team-card">
+                <div class="team-avatar">
+                    <img id="memberAvatar" class="avatar-img" src="/assets/images/team/member.jpg" alt="Đoàn Văn Hoạt"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder" style="display: none;">ĐH</div>
+                    <div class="avatar-badge">Thành viên</div>
+                </div>
+                <div class="team-info">
+                    <h3>Đoàn Văn Hoạt</h3>
+                    <div class="team-role">Thành viên nhóm phát triển</div>
+                    <div class="team-department">Kỹ thuật Robot và Trí tuệ nhân tạo K64</div>
+                    <div class="team-detail"><strong>MSSV:</strong> 642102</div>
+                    <div class="team-detail"><strong>Email:</strong> doanvanhoat@utc.edu.vn</div>
+                    <div class="team-detail"><strong>Phụ trách:</strong> Vision System, DepthAwareSNN, Web UI, Frontend
+                    </div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">OpenCV</span>
+                        <span class="expertise-tag">CUDA</span>
+                        <span class="expertise-tag">JavaScript</span>
+                        <span class="expertise-tag">HTML/CSS</span>
+                        <span class="expertise-tag">React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-section">
+        <div class="section-header">
+            <span class="section-tag">Công nghệ</span>
+            <h2 style="color:white;">Tech <span class="highlight-gold">Stack</span></h2>
+            <p>Các công nghệ và thư viện sử dụng trong dự án</p>
+        </div>
+        <div class="tech-cloud">
+            <div class="tech-item">Spiking Neural Networks</div>
+            <div class="tech-item">PyTorch</div>
+            <div class="tech-item">snntorch</div>
+            <div class="tech-item">FastAPI</div>
+            <div class="tech-item">Sentence Transformers</div>
+            <div class="tech-item">FAISS</div>
+            <div class="tech-item">OpenCV</div>
+            <div class="tech-item">CUDA</div>
+            <div class="tech-item">Jetson AGX Orin</div>
+            <div class="tech-item">Orbbec Astra Pro</div>
+            <div class="tech-item">RAG Knowledge Base</div>
+            <div class="tech-item">Underthesea NLP</div>
+            <div class="tech-item">HTML5 / CSS3</div>
+            <div class="tech-item">JavaScript</div>
+            <div class="tech-item">WebSocket</div>
+            <div class="tech-item">TensorRT</div>
+            <div class="tech-item">Graph Parser</div>
+            <div class="tech-item">FPT ASR/TTS</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Đại học Giao thông Vận tải</strong></p>
+                <p>Số 3 Phố Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội</p>
+                <p>(024) 3766 1234 | contact@utc.edu.vn</p>
+            </div>
+            <div class="footer-tech">
+                <p>Đề tài NCKH 2026 | Công nghệ: SNN · RAG · Graph-based Parsing · snntorch · FastAPI</p>
+                <p>Robot EEEC Giao tiếp Thông minh - Đại học Giao thông Vận tải</p>
+                <p>Đội ngũ: 1 Giảng viên hướng dẫn + 2 Sinh viên thực hiện</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Xử lý lỗi ảnh - bạn có thể thay link ảnh sau
+        // Để thay ảnh, chỉ cần sửa src trong thẻ img tương ứng
+
+        console.log('Trang đội ngũ - Robot EEEC');
+        console.log('Giảng viên hướng dẫn: PGS. TS. Trịnh Lương Miên');
+        console.log('Nhóm trưởng: Phan Đình Mạnh - Kỹ thuật Robot và Trí tuệ nhân tạo K64');
+        console.log('Thành viên: Đoàn Văn Hoạt - Kỹ thuật Robot và Trí tuệ nhân tạo K64');
+    </script>
+</body>
+
+</html>

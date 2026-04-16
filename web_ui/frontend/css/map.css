@@ -1,0 +1,46 @@
+/* Basic map styles */
+.map-main {
+    padding: 20px;
+}
+.map-container {
+    display: flex;
+    gap: 20px;
+}
+.map-sidebar {
+    width: 300px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+}
+.map-display {
+    flex: 1;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+#roomList {
+    margin-top: 10px;
+    list-style: none;
+}
+#roomList li {
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+.floor-selector, .room-search {
+    margin-bottom: 20px;
+}
+.room-search input, .floor-selector select {
+    padding: 8px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+}
+.room-search button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+}

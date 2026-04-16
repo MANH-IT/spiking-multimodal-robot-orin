@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản đồ tòa nhà - Robot EEEC Đại học Giao thông Vận tải</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset và biến màu */
+        :root {
+            --utc-blue: #0099ff;
+            --utc-yellow: #ffdd44;
+            --utc-dark: #0a0e1a;
+            --utc-gray: #1a1f2e;
+            --utc-light: #e8edf5;
+            --gradient-blue: linear-gradient(135deg, #0099ff, #0066cc);
+            --gradient-gold: linear-gradient(135deg, #ffdd44, #ffaa00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--utc-dark);
+            color: var(--utc-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 26, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-brand small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--utc-yellow);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #b0b8cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--utc-yellow);
+            text-shadow: 0 0 5px rgba(255, 221, 68, 0.5);
+        }
+
+        .nav-item.active .nav-link {
+            color: var(--utc-yellow);
+            border-bottom: 2px solid var(--utc-yellow);
+        }
+
+        .status-badge {
+            background: rgba(0, 204, 0, 0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            color: #00ff88;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* Map Main */
+        .map-main {
+            padding: 2rem 5%;
+            min-height: calc(100vh - 160px);
+        }
+
+        .map-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(26, 31, 46, 0.5);
+            border-radius: 24px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 153, 255, 0.1);
+            min-height: 650px;
+        }
+
+        /* Sidebar */
+        .map-sidebar {
+            width: 320px;
+            background: rgba(10, 14, 26, 0.8);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border-right: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .map-sidebar h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, var(--utc-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.2);
+        }
+
+        .floor-selector {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .floor-selector label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .floor-selector select {
+            width: 100%;
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.7rem;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .floor-selector select:focus {
+            border-color: var(--utc-blue);
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.3);
+        }
+
+        .room-search {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .room-search h4 {
+            font-size: 0.85rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .room-search input {
+            flex: 1;
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            padding: 0.7rem;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .room-search input:focus {
+            border-color: var(--utc-blue);
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.3);
+        }
+
+        .room-search input::placeholder {
+            color: #5a6278;
+        }
+
+        .room-search button {
+            background: var(--gradient-blue);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .room-search button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(0, 153, 255, 0.4);
+        }
+
+        .floor-info {
+            background: rgba(0, 153, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+            flex: 1;
+        }
+
+        .floor-info h3 {
+            font-size: 0.9rem;
+            color: var(--utc-yellow);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .room-list {
+            list-style: none;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .room-list li {
+            padding: 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .room-list li:hover {
+            background: rgba(0, 153, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .room-list li.room-highlight {
+            background: rgba(255, 221, 68, 0.2);
+            border-left: 3px solid var(--utc-yellow);
+        }
+
+        /* Map Display */
+        .map-display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .map-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .map-btn {
+            background: rgba(0, 153, 255, 0.1);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .map-btn:hover {
+            background: rgba(255, 221, 68, 0.2);
+            border-color: var(--utc-yellow);
+        }
+
+        .map-canvas {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #floorSvg {
+            width: 100%;
+            height: auto;
+            background: rgba(26, 31, 46, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 153, 255, 0.2);
+            cursor: pointer;
+        }
+
+        /* Path info */
+        .path-info {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+            background: rgba(10, 14, 26, 0.5);
+        }
+
+        .path-info p {
+            font-size: 0.85rem;
+            color: #8a92a8;
+        }
+
+        .path-info strong {
+            color: var(--utc-yellow);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #070b14, #0a0e1a);
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(0, 153, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info,
+        .footer-tech {
+            flex: 1;
+        }
+
+        .footer-info p,
+        .footer-tech p {
+            margin-bottom: 0.5rem;
+            color: #8a92a8;
+            font-size: 0.85rem;
+        }
+
+        .footer-info p strong {
+            color: var(--utc-yellow);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--utc-blue), var(--utc-yellow));
+            border-radius: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .map-container {
+                flex-direction: column;
+            }
+
+            .map-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 153, 255, 0.1);
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Room highlight animation */
+        @keyframes highlight {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 2px #ffdd44);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 15px #ffdd44);
+            }
+        }
+
+        .room-highlight-svg {
+            animation: highlight 0.5s ease-in-out 3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo"
+                style="width:48px;height:48px;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 2px var(--utc-yellow);">
+                <img src="/assets/images/logo.png" alt="Logo Đại học Giao thông Vận tải"
+                    style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <span>Robot EEEC<small>Đại học Giao thông Vận tải</small></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="/chat" class="nav-link">Trò chuyện</a></li>
+            <li class="nav-item"><a href="/camera" class="nav-link">Thị giác</a></li>
+            <li class="nav-item active"><a href="/map" class="nav-link">Bản đồ</a></li>
+            <li class="nav-item"><a href="/news" class="nav-link">Tin tức</a></li>
+            <li class="nav-item"><a href="/team" class="nav-link">Đội ngũ</a></li>
+        </ul>
+        <div class="nav-status">
+            <span class="status-badge">SNN : ONLINE</span>
+        </div>
+    </nav>
+
+    <main class="map-main">
+        <div class="map-container">
+            <div class="map-sidebar">
+                <h2>Bản đồ tòa nhà 15 tầng</h2>
+
+                <div class="floor-selector">
+                    <label>Chọn tầng</label>
+                    <select id="floorSelect">
+                        <option value="1">Tầng 1 - Sảnh chính, Phòng bảo vệ</option>
+                        <option value="2">Tầng 2 - Thư viện, Phòng đọc</option>
+                        <option value="3" selected>Tầng 3 - Khoa Công nghệ thông tin</option>
+                        <option value="4">Tầng 4 - Phòng thí nghiệm</option>
+                        <option value="5">Tầng 5 - Khoa Điện - Điện tử</option>
+                        <option value="6">Tầng 6 - Phòng họp, Hội trường</option>
+                        <option value="7">Tầng 7 - Văn phòng khoa</option>
+                        <option value="8">Tầng 8 - Phòng nghiên cứu</option>
+                        <option value="9">Tầng 9 - Trung tâm máy tính</option>
+                        <option value="10">Tầng 10 - Phòng đào tạo</option>
+                        <option value="11">Tầng 11 - Khoa Công trình</option>
+                        <option value="12">Tầng 12 - Phòng thực hành</option>
+                        <option value="13">Tầng 13 - Ban giám hiệu</option>
+                        <option value="14">Tầng 14 - Phòng tiếp khách</option>
+                        <option value="15">Tầng 15 - Sân thượng, Căn tin</option>
+                    </select>
+                </div>
+
+                <div class="room-search">
+                    <h4>Tìm phòng</h4>
+                    <div class="search-wrapper">
+                        <input type="text" id="roomSearch" placeholder="Nhập số phòng (VD: 301, 402)">
+                        <button id="searchRoomBtn">Tìm</button>
+                    </div>
+                </div>
+
+                <div class="floor-info">
+                    <h3 id="floorInfoTitle">Thông tin tầng 3</h3>
+                    <ul class="room-list" id="roomList">
+                        <li data-room="301">301 - Phòng Họp</li>
+                        <li data-room="302">302 - Khoa Công nghệ thông tin</li>
+                        <li data-room="303">303 - Phòng thí nghiệm</li>
+                        <li data-room="304">304 - Bộ môn Điều khiển học</li>
+                        <li data-room="305">305 - Văn phòng khoa</li>
+                        <li data-room="306">306 - Phòng giáo viên</li>
+                        <li data-room="307">307 - Phòng Seminar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="map-display">
+                <div class="map-header">
+                    <h3 id="currentFloor">Tầng 3 - Khoa Công nghệ thông tin</h3>
+                    <div class="map-actions">
+                        <button id="zoomInBtn" class="map-btn">Phóng to</button>
+                        <button id="zoomOutBtn" class="map-btn">Thu nhỏ</button>
+                        <button id="resetViewBtn" class="map-btn">Reset</button>
+                    </div>
+                </div>
+
+                <div class="map-canvas">
+                    <svg id="floorSvg" viewBox="0 0 800 600"></svg>
+                </div>
+
+                <div class="path-info" id="pathInfo">
+                    <p>Chọn một phòng trên bản đồ hoặc tìm kiếm để xem chỉ đường</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Đại học Giao thông Vận tải</strong></p>
+                <p>Số 3 Phố Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội</p>
+                <p>(024) 3766 1234 | contact@utc.edu.vn</p>
+            </div>
+            <div class="footer-tech">
+                <p>Đề tài NCKH 2026 | Công nghệ: SNN · RAG · SLAM · Path Planning</p>
+                <p>Robot EEEC Bản đồ thông minh - Đại học Giao thông Vận tải</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dữ liệu phòng theo tầng
+        const floorData = {
+            1: [{ room: "101", name: "Phòng bảo vệ", x: 100, y: 100, w: 100, h: 80 },
+            { room: "102", name: "Sảnh chính", x: 250, y: 100, w: 200, h: 80 },
+            { room: "103", name: "Phòng trực", x: 500, y: 100, w: 100, h: 80 }],
+            2: [{ room: "201", name: "Thư viện", x: 100, y: 100, w: 250, h: 150 },
+            { room: "202", name: "Phòng đọc", x: 400, y: 100, w: 150, h: 150 },
+            { room: "203", name: "Kho sách", x: 600, y: 100, w: 100, h: 150 }],
+            3: [{ room: "301", name: "Phòng Họp", x: 80, y: 80, w: 120, h: 100 },
+            { room: "302", name: "Khoa CNTT", x: 250, y: 80, w: 150, h: 100 },
+            { room: "303", name: "Phòng thí nghiệm", x: 450, y: 80, w: 130, h: 100 },
+            { room: "304", name: "Bộ môn Điều khiển", x: 80, y: 250, w: 140, h: 100 },
+            { room: "305", name: "Văn phòng khoa", x: 270, y: 250, w: 130, h: 100 },
+            { room: "306", name: "Phòng giáo viên", x: 450, y: 250, w: 130, h: 100 },
+            { room: "307", name: "Phòng Seminar", x: 630, y: 250, w: 120, h: 100 }],
+            4: [{ room: "401", name: "Lab AI", x: 100, y: 100, w: 150, h: 120 },
+            { room: "402", name: "Lab Robotics", x: 300, y: 100, w: 150, h: 120 },
+            { room: "403", name: "Lab IoT", x: 550, y: 100, w: 150, h: 120 }],
+            5: [{ room: "501", name: "Khoa Điện - Điện tử", x: 100, y: 100, w: 200, h: 120 },
+            { room: "502", name: "Phòng thực hành", x: 350, y: 100, w: 150, h: 120 },
+            { room: "503", name: "Khoa Tự động hóa", x: 550, y: 100, w: 150, h: 120 }]
+        };
+
+        // Thêm dữ liệu cho các tầng còn lại
+        for (let i = 6; i <= 15; i++) {
+            floorData[i] = [
+                { room: `${i}01`, name: `Phòng A${i}01`, x: 100, y: 100, w: 180, h: 120 },
+                { room: `${i}02`, name: `Phòng A${i}02`, x: 320, y: 100, w: 180, h: 120 },
+                { room: `${i}03`, name: `Phòng A${i}03`, x: 540, y: 100, w: 180, h: 120 }
+            ];
+        }
+
+        // Thêm dữ liệu đặc biệt cho tầng 15
+        floorData[15] = [
+            { room: "1501", name: "Sân thượng", x: 100, y: 80, w: 300, h: 150 },
+            { room: "1502", name: "Căn tin", x: 450, y: 80, w: 250, h: 150 },
+            { room: "1503", name: "Khu vực nghỉ", x: 200, y: 280, w: 400, h: 120 }
+        ];
+
+        let currentFloor = 3;
+        let currentZoom = 1;
+        let selectedRoom = null;
+
+        // DOM elements
+        const floorSelect = document.getElementById('floorSelect');
+        const roomSearch = document.getElementById('roomSearch');
+        const searchBtn = document.getElementById('searchRoomBtn');
+        const roomList = document.getElementById('roomList');
+        const floorInfoTitle = document.getElementById('floorInfoTitle');
+        const currentFloorSpan = document.getElementById('currentFloor');
+        const pathInfo = document.getElementById('pathInfo');
+        const floorSvg = document.getElementById('floorSvg');
+        const zoomInBtn = document.getElementById('zoomInBtn');
+        const zoomOutBtn = document.getElementById('zoomOutBtn');
+        const resetViewBtn = document.getElementById('resetViewBtn');
+
+        // Vẽ bản đồ
+        function drawMap() {
+            const rooms = floorData[currentFloor] || [];
+            const svg = floorSvg;
+            svg.innerHTML = '';
+
+            // Vẽ nền
+            const bgRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            bgRect.setAttribute('x', '0');
+            bgRect.setAttribute('y', '0');
+            bgRect.setAttribute('width', '800');
+            bgRect.setAttribute('height', '600');
+            bgRect.setAttribute('fill', 'rgba(26, 31, 46, 0.6)');
+            bgRect.setAttribute('rx', '10');
+            svg.appendChild(bgRect);
+
+            // Vẽ lưới
+            for (let i = 0; i <= 800; i += 50) {
+                const lineV = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                lineV.setAttribute('x1', i);
+                lineV.setAttribute('y1', 0);
+                lineV.setAttribute('x2', i);
+                lineV.setAttribute('y2', 600);
+                lineV.setAttribute('stroke', 'rgba(255, 255, 255, 0.05)');
+                lineV.setAttribute('stroke-width', '1');
+                svg.appendChild(lineV);
+
+                const lineH = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                lineH.setAttribute('x1', 0);
+                lineH.setAttribute('y1', i);
+                lineH.setAttribute('x2', 800);
+                lineH.setAttribute('y2', i);
+                lineH.setAttribute('stroke', 'rgba(255, 255, 255, 0.05)');
+                lineH.setAttribute('stroke-width', '1');
+                svg.appendChild(lineH);
+            }
+
+            // Vẽ các phòng
+            rooms.forEach(room => {
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                g.setAttribute('data-room', room.room);
+                g.setAttribute('data-name', room.name);
+                g.style.cursor = 'pointer';
+
+                const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                rect.setAttribute('x', room.x);
+                rect.setAttribute('y', room.y);
+                rect.setAttribute('width', room.w);
+                rect.setAttribute('height', room.h);
+                rect.setAttribute('rx', '8');
+                rect.setAttribute('fill', selectedRoom === room.room ? 'rgba(255, 221, 68, 0.3)' : 'rgba(0, 153, 255, 0.15)');
+                rect.setAttribute('stroke', selectedRoom === room.room ? '#ffdd44' : 'rgba(0, 153, 255, 0.4)');
+                rect.setAttribute('stroke-width', selectedRoom === room.room ? '2' : '1.5');
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', room.x + room.w / 2);
+                text.setAttribute('y', room.y + room.h / 2 - 10);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('fill', '#e0e5f0');
+                text.setAttribute('font-size', '12');
+                text.setAttribute('font-weight', '600');
+                text.textContent = room.room;
+
+                const subText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                subText.setAttribute('x', room.x + room.w / 2);
+                subText.setAttribute('y', room.y + room.h / 2 + 10);
+                subText.setAttribute('text-anchor', 'middle');
+                subText.setAttribute('fill', '#8a92a8');
+                subText.setAttribute('font-size', '9');
+                subText.textContent = room.name.length > 15 ? room.name.substring(0, 12) + '...' : room.name;
+
+                g.appendChild(rect);
+                g.appendChild(text);
+                g.appendChild(subText);
+
+                g.addEventListener('click', () => selectRoom(room.room, room.name));
+                svg.appendChild(g);
+            });
+        }
+
+        // Chọn phòng
+        function selectRoom(roomNumber, roomName) {
+            selectedRoom = roomNumber;
+            drawMap();
+
+            // Highlight trong danh sách
+            document.querySelectorAll('.room-list li').forEach(li => {
+                li.classList.remove('room-highlight');
+                if (li.getAttribute('data-room') === roomNumber) {
+                    li.classList.add('room-highlight');
+                }
+            });
+
+            // Hiển thị chỉ đường
+            const floorName = floorSelect.options[floorSelect.selectedIndex]?.text || `Tầng ${currentFloor}`;
+            pathInfo.innerHTML = `
+                <p><strong>Chỉ đường đến ${roomNumber} - ${roomName}</strong><br>
+                📍 Vị trí: ${floorName}<br>
+                🚶 Hướng dẫn: Từ cầu thang chính, rẽ phải, đi thẳng khoảng 20m, phòng ${roomNumber} nằm bên tay trái.</p>
+            `;
+
+            // Cuộn đến phòng trong danh sách
+            const highlightedLi = document.querySelector('.room-list li.room-highlight');
+            if (highlightedLi) {
+                highlightedLi.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Cập nhật danh sách phòng theo tầng
+        function updateRoomList() {
+            const rooms = floorData[currentFloor] || [];
+            roomList.innerHTML = '';
+            rooms.forEach(room => {
+                const li = document.createElement('li');
+                li.setAttribute('data-room', room.room);
+                li.textContent = `${room.room} - ${room.name}`;
+                li.addEventListener('click', () => selectRoom(room.room, room.name));
+                roomList.appendChild(li);
+            });
+
+            const floorNames = {
+                1: 'Tầng 1 - Sảnh chính',
+                2: 'Tầng 2 - Thư viện',
+                3: 'Tầng 3 - Khoa Công nghệ thông tin',
+                4: 'Tầng 4 - Phòng thí nghiệm',
+                5: 'Tầng 5 - Khoa Điện - Điện tử',
+                6: 'Tầng 6 - Phòng họp',
+                7: 'Tầng 7 - Văn phòng khoa',
+                8: 'Tầng 8 - Phòng nghiên cứu',
+                9: 'Tầng 9 - Trung tâm máy tính',
+                10: 'Tầng 10 - Phòng đào tạo',
+                11: 'Tầng 11 - Khoa Công trình',
+                12: 'Tầng 12 - Phòng thực hành',
+                13: 'Tầng 13 - Ban giám hiệu',
+                14: 'Tầng 14 - Phòng tiếp khách',
+                15: 'Tầng 15 - Sân thượng'
+            };
+
+            floorInfoTitle.textContent = `Thông tin ${floorNames[currentFloor] || `Tầng ${currentFloor}`}`;
+            currentFloorSpan.textContent = floorNames[currentFloor] || `Tầng ${currentFloor}`;
+        }
+
+        // Đổi tầng
+        function changeFloor(floor) {
+            currentFloor = parseInt(floor);
+            selectedRoom = null;
+            drawMap();
+            updateRoomList();
+            pathInfo.innerHTML = '<p>Chọn một phòng trên bản đồ hoặc tìm kiếm để xem chỉ đường</p>';
+        }
+
+        // Tìm phòng
+        function searchRoom() {
+            const searchTerm = roomSearch.value.trim();
+            if (!searchTerm) return;
+
+            // Tìm trong tất cả các tầng
+            for (let floor = 1; floor <= 15; floor++) {
+                const rooms = floorData[floor] || [];
+                const foundRoom = rooms.find(r =>
+                    r.room === searchTerm ||
+                    r.room.includes(searchTerm) ||
+                    r.name.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+
+                if (foundRoom) {
+                    if (currentFloor !== floor) {
+                        floorSelect.value = floor;
+                        changeFloor(floor);
+                    }
+                    setTimeout(() => {
+                        selectRoom(foundRoom.room, foundRoom.name);
+
+                        // Highlight và animation
+                        const svgRoom = document.querySelector(`g[data-room="${foundRoom.room}"] rect`);
+                        if (svgRoom) {
+                            svgRoom.classList.add('room-highlight-svg');
+                            setTimeout(() => {
+                                svgRoom.classList.remove('room-highlight-svg');
+                            }, 1500);
+                        }
+                    }, 100);
+                    return;
+                }
+            }
+
+            pathInfo.innerHTML = `<p>❌ Không tìm thấy phòng "${searchTerm}". Vui lòng kiểm tra lại số phòng.</p>`;
+        }
+
+        // Zoom functions
+        function zoomIn() {
+            currentZoom = Math.min(currentZoom + 0.1, 1.5);
+            floorSvg.style.transform = `scale(${currentZoom})`;
+            floorSvg.style.transformOrigin = 'center center';
+        }
+
+        function zoomOut() {
+            currentZoom = Math.max(currentZoom - 0.1, 0.6);
+            floorSvg.style.transform = `scale(${currentZoom})`;
+            floorSvg.style.transformOrigin = 'center center';
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            floorSvg.style.transform = 'scale(1)';
+        }
+
+        // Event listeners
+        floorSelect.addEventListener('change', (e) => changeFloor(e.target.value));
+        searchBtn.addEventListener('click', searchRoom);
+        roomSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchRoom();
+        });
+        zoomInBtn.addEventListener('click', zoomIn);
+        zoomOutBtn.addEventListener('click', zoomOut);
+        resetViewBtn.addEventListener('click', resetZoom);
+
+        // Initialize
+        drawMap();
+        updateRoomList();
+    </script>
+</body>
+
+</html>
