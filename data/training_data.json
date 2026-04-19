@@ -1,0 +1,4602 @@
+[
+    {
+        "text": "làm ơn cho biết lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "bạn có biết lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi lịch sử của trường đại học giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "làm ơn cho biết Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "bạn có biết Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho hỏi về cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Ngành Cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho mình hỏi điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi điểm chuẩn ngành logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Cách thức đăng ký nguyện vọng vào UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Lịch sử của trường Đại học Giao thông",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi trường giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "kể cho tôi cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Chỉ tiêu ngành Kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi chương trình đào tạo ngành công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "robot cho hỏi Xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ phòng thí nghiệm trọng điểm của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Hiệu trưởng hiện tại của UTC là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu câu lạc bộ nckh khoa điện - điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "robot cho hỏi Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "địa chỉ Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi hiệu trưởng hiện tại của utc là ai",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho mình hỏi thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ xét tuyển học bạ cần điều kiện gì",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về điểm chuẩn năm 2023 của utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Lệ phí xét tuyển là bao nhiêu",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "kể cho tôi Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi cổng thông tin đào tạo sinh viên",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu trường đại học giao thông vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về trường có những ngành đào tạo nào",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cần tìm hiểu địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "địa chỉ số điện thoại liên hệ của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Chương trình liên kết quốc tế của UTC",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "giải thích cho tôi thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Điểm chuẩn ngành Logistics năm ngoái",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "bạn có biết tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "cho hỏi về chỉ tiêu ngành kỹ thuật ô tô",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "thông tin về Cơ sở 2 của trường nằm ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về Hợp tác nghiên cứu với doanh nghiệp",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi Hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cho hỏi về tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "muốn biết về hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "cho mình hỏi diện tích của trường cơ sở hà nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "làm ơn cho biết địa chỉ cơ sở 1 của utc",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "thông tin về xin chào robot",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "địa chỉ Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "giải thích cho tôi Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Cuộc thi sáng tạo robot của trường",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "địa chỉ Câu lạc bộ NCKH Khoa Điện - Điện tử",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Diện tích của trường cơ sở Hà Nội",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho hỏi về Thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "muốn biết về Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Địa chỉ cơ sở 1 của UTC",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cho mình hỏi các đề tài nckh cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về Hôm nay thời tiết thế nào",
+        "intent": "khac"
+    },
+    {
+        "text": "thông tin về cách thức đăng ký nguyện vọng vào utc",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "làm ơn cho biết bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "giải thích cho tôi Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "Học phí một tín chỉ hiện nay",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "thông tin về Cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Chương trình đào tạo ngành Công nghệ thông tin",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "kể cho tôi tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "xin hỏi trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho mình hỏi phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ Tên bạn là gì",
+        "intent": "khac"
+    },
+    {
+        "text": "xin hỏi chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "địa chỉ tạp chí khoa học giao thông vận tải",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "giải thích cho tôi Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "robot cho hỏi Học phí dự kiến cho tân sinh viên",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "giải thích cho tôi Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết thành tựu nổi bật của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "kể cho tôi Phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "xin hỏi hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "muốn biết về Các đề tài NCKH cấp bộ",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu ngành cầu đường học mấy năm",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cho hỏi về Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "cần tìm hiểu Điểm chuẩn năm 2023 của UTC",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "muốn biết về Trường Giao thông thành lập năm nào",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu Quy định về học bổng khuyến khích học tập",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "làm ơn cho biết robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết chương trình liên kết quốc tế của utc",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "bạn có biết robot đáng yêu quá",
+        "intent": "khac"
+    },
+    {
+        "text": "bạn có biết Trường có đào tạo hệ chất lượng cao không",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "xin hỏi Website chính thức của trường",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "xin hỏi Thời gian nộp hồ sơ xét tuyển",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Bạn có khỏe không",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về Tạm biệt nhé",
+        "intent": "khac"
+    },
+    {
+        "text": "làm ơn cho biết chào buổi sáng",
+        "intent": "khac"
+    },
+    {
+        "text": "cần tìm hiểu Kế hoạch tuyển sinh bổ sung",
+        "intent": "tuyen_sinh"
+    },
+    {
+        "text": "robot cho hỏi Tra cứu thời khóa biểu ở đâu",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "robot cho hỏi hoạt động nghiên cứu khoa học sinh viên",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "thông tin về Trường Đại học Giao thông Vận tải ở đâu",
+        "intent": "thong_tin_truong"
+    },
+    {
+        "text": "cần tìm hiểu Thời gian thực tập của sinh viên năm cuối",
+        "intent": "dao_tao"
+    },
+    {
+        "text": "kể cho tôi Thư viện trường có những tài liệu gì",
+        "intent": "nghien_cuu"
+    },
+    {
+        "text": "cần tìm hiểu cảm ơn em",
+        "intent": "khac"
+    },
+    {
+        "text": "muốn biết về phương thức tuyển sinh của trường năm nay",
+        "intent": "tuyen_sinh"
+    }
+]

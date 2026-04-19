@@ -1,0 +1,7 @@
+{
+    "cSpell.maxNumberOfProblems": 100,
+    "cSpell.enableFiletypes": ["json"],
+    "files.associations": {
+        "*.json": "jsonc"
+    }
+}

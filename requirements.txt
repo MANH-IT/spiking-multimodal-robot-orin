@@ -7,3 +7,11 @@ torch
 torchvision
 onnx
 onnxruntime
+snntorch
+sentence-transformers
+faiss-cpu
+underthesea
+beautifulsoup4
+requests
+fastapi
+uvicorn

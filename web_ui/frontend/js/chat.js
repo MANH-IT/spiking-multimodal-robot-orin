@@ -1,9 +1,13 @@
-// chat.js - Xử lý trang trò chuyện với Robot EEEC
-// Đại học Giao thông Vận tải
+/**
+ * chat.js - Xử lý trang trò chuyện với Robot EEEC
+ * Đại học Giao thông Vận tải
+ * Kết nối với FastAPI Backend tại localhost:8000
+ */
 
 // ==================== CẤU HÌNH ====================
 const CHAT_CONFIG = {
     API_URL: 'http://localhost:8000',
+    WS_URL: 'ws://localhost:8000/ws',
     MAX_HISTORY: 100,
     TYPING_DELAY: 500,
     VOICE_LANG: 'vi-VN'
@@ -15,8 +19,84 @@ let chatState = {
     isTyping: false,
     isRecording: false,
     currentPage: 1,
-    hasMore: false
+    hasMore: false,
+    wsConnected: false
 };
+
+// ==================== WEBSOCKET ====================
+let socket = null;
+let reconnectTimer = null;
+
+function initWebSocket() {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        return;
+    }
+
+    try {
+        socket = new WebSocket(CHAT_CONFIG.WS_URL);
+
+        socket.onopen = () => {
+            console.log('✅ WebSocket connected');
+            chatState.wsConnected = true;
+            updateConnectionStatus(true);
+        };
+
+        socket.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+                console.log('📨 Received:', data);
+
+                if (data.answer) {
+                    hideTypingIndicator();
+                    addMessage('robot', data.answer, true);
+
+                    // Nếu có intent, hiển thị
+                    if (data.intent) {
+                        addIntentBadge(data.intent);
+                    }
+                }
+            } catch (e) {
+                console.error('Error parsing message:', e);
+            }
+        };
+
+        socket.onclose = () => {
+            console.log('⚠️ WebSocket disconnected');
+            chatState.wsConnected = false;
+            updateConnectionStatus(false);
+
+            // Auto reconnect
+            if (reconnectTimer) clearTimeout(reconnectTimer);
+            reconnectTimer = setTimeout(() => {
+                console.log('🔄 Reconnecting WebSocket...');
+                initWebSocket();
+            }, 5000);
+        };
+
+        socket.onerror = (error) => {
+            console.error('WebSocket Error:', error);
+            chatState.wsConnected = false;
+            updateConnectionStatus(false);
+        };
+    } catch (e) {
+        console.error('Failed to initialize WebSocket:', e);
+        chatState.wsConnected = false;
+        updateConnectionStatus(false);
+    }
+}
+
+function updateConnectionStatus(connected) {
+    const statusElement = document.getElementById('connectionStatus');
+    if (statusElement) {
+        if (connected) {
+            statusElement.innerHTML = '🟢 Robot Online';
+            statusElement.style.color = '#4caf50';
+        } else {
+            statusElement.innerHTML = '🔴 Robot Offline (dùng chế độ dự phòng)';
+            statusElement.style.color = '#ff9800';
+        }
+    }
+}
 
 // ==================== DOM ELEMENTS ====================
 let dom = {
@@ -40,77 +120,64 @@ function initVoiceRecognition() {
         recognition.continuous = false;
         recognition.interimResults = false;
 
-        setupVoiceEvents();
+        recognition.onstart = () => {
+            chatState.isRecording = true;
+            if (dom.voiceStatus) {
+                dom.voiceStatus.textContent = '🎤 Đang nghe...';
+                dom.voiceStatus.style.display = 'inline';
+            }
+            if (dom.voiceBtn) {
+                dom.voiceBtn.style.background = 'rgba(255, 221, 68, 0.3)';
+            }
+        };
+
+        recognition.onresult = (event) => {
+            const text = event.results[0][0].transcript;
+            if (dom.textInput) {
+                dom.textInput.value = text;
+            }
+            if (dom.voiceStatus) {
+                dom.voiceStatus.textContent = `✅ "${text}"`;
+                setTimeout(() => {
+                    if (dom.voiceStatus) dom.voiceStatus.style.display = 'none';
+                }, 2000);
+            }
+            // Tự động gửi tin nhắn
+            sendMessage(text);
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Voice recognition error:', event.error);
+            if (dom.voiceStatus) {
+                dom.voiceStatus.textContent = '❌ Không nhận diện được';
+                dom.voiceStatus.style.color = '#ff6666';
+                setTimeout(() => {
+                    if (dom.voiceStatus) dom.voiceStatus.style.display = 'none';
+                }, 2000);
+            }
+            chatState.isRecording = false;
+            if (dom.voiceBtn) {
+                dom.voiceBtn.style.background = '';
+            }
+        };
+
+        recognition.onend = () => {
+            chatState.isRecording = false;
+            if (dom.voiceBtn) {
+                dom.voiceBtn.style.background = '';
+            }
+        };
+
         return true;
     } else {
-        console.warn('Trình duyệt không hỗ trợ nhận diện giọng nói');
+        console.warn('Browser does not support speech recognition');
         if (dom.voiceBtn) {
             dom.voiceBtn.style.opacity = '0.5';
+            dom.voiceBtn.disabled = true;
             dom.voiceBtn.title = 'Trình duyệt không hỗ trợ nhận diện giọng nói';
         }
         return false;
     }
-}
-
-function setupVoiceEvents() {
-    if (!recognition) return;
-
-    recognition.onstart = () => {
-        chatState.isRecording = true;
-        if (dom.voiceStatus) {
-            dom.voiceStatus.textContent = '🎤 Đang nghe...';
-            dom.voiceStatus.style.color = '#ffdd44';
-        }
-        if (dom.voiceBtn) {
-            dom.voiceBtn.style.background = 'rgba(255, 221, 68, 0.3)';
-            dom.voiceBtn.style.borderColor = '#ffdd44';
-        }
-    };
-
-    recognition.onresult = (event) => {
-        const text = event.results[0][0].transcript;
-        if (dom.textInput) {
-            dom.textInput.value = text;
-        }
-        if (dom.voiceStatus) {
-            dom.voiceStatus.textContent = `✅ Đã nhận diện: "${text}"`;
-            dom.voiceStatus.style.color = '#00ff88';
-        }
-        setTimeout(() => {
-            if (dom.voiceStatus && dom.voiceStatus.textContent !== '🔴 Đang ghi âm...') {
-                dom.voiceStatus.textContent = '';
-            }
-        }, 2000);
-        // Tự động gửi tin nhắn sau khi nhận diện
-        sendMessage(text);
-    };
-
-    recognition.onerror = (event) => {
-        console.error('Voice recognition error:', event.error);
-        if (dom.voiceStatus) {
-            dom.voiceStatus.textContent = '❌ Không thể nhận diện giọng nói';
-            dom.voiceStatus.style.color = '#ff6666';
-        }
-        setTimeout(() => {
-            if (dom.voiceStatus) dom.voiceStatus.textContent = '';
-        }, 2000);
-        chatState.isRecording = false;
-        if (dom.voiceBtn) {
-            dom.voiceBtn.style.background = 'rgba(0, 153, 255, 0.1)';
-            dom.voiceBtn.style.borderColor = 'rgba(0, 153, 255, 0.3)';
-        }
-    };
-
-    recognition.onend = () => {
-        chatState.isRecording = false;
-        if (dom.voiceBtn) {
-            dom.voiceBtn.style.background = 'rgba(0, 153, 255, 0.1)';
-            dom.voiceBtn.style.borderColor = 'rgba(0, 153, 255, 0.3)';
-        }
-        if (dom.voiceStatus && dom.voiceStatus.textContent === '🎤 Đang nghe...') {
-            dom.voiceStatus.textContent = '';
-        }
-    };
 }
 
 function startVoiceRecording() {
@@ -119,13 +186,6 @@ function startVoiceRecording() {
             recognition.start();
         } catch (e) {
             console.error('Cannot start recognition:', e);
-            if (dom.voiceStatus) {
-                dom.voiceStatus.textContent = '⚠️ Vui lòng thử lại';
-                dom.voiceStatus.style.color = '#ffaa00';
-                setTimeout(() => {
-                    if (dom.voiceStatus) dom.voiceStatus.textContent = '';
-                }, 2000);
-            }
         }
     }
 }
@@ -133,7 +193,9 @@ function startVoiceRecording() {
 // ==================== LOCAL STORAGE ====================
 function saveChatHistory() {
     try {
-        localStorage.setItem('chat_history_eeec', JSON.stringify(chatState.messages));
+        // Chỉ lưu 50 tin nhắn gần nhất
+        const toSave = chatState.messages.slice(-50);
+        localStorage.setItem('chat_history_eeec', JSON.stringify(toSave));
     } catch (e) {
         console.error('Cannot save chat history:', e);
     }
@@ -152,10 +214,12 @@ function loadChatHistory() {
 }
 
 function clearChatHistory() {
-    chatState.messages = [];
-    saveChatHistory();
-    renderMessages();
-    addWelcomeMessage();
+    if (confirm('Bạn có chắc chắn muốn xóa toàn bộ lịch sử trò chuyện?')) {
+        chatState.messages = [];
+        saveChatHistory();
+        renderMessages();
+        addWelcomeMessage();
+    }
 }
 
 // ==================== MESSAGE HANDLING ====================
@@ -191,7 +255,12 @@ function renderMessage(message) {
     contentDiv.className = 'message-content';
 
     if (message.type === 'robot') {
-        contentDiv.innerHTML = message.content;
+        // Xử lý markdown đơn giản
+        let formatted = message.content
+            .replace(/\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
+        contentDiv.innerHTML = formatted;
     } else {
         contentDiv.textContent = message.content;
     }
@@ -218,7 +287,11 @@ function renderMessages() {
         contentDiv.className = 'message-content';
 
         if (message.type === 'robot') {
-            contentDiv.innerHTML = message.content;
+            let formatted = message.content
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            contentDiv.innerHTML = formatted;
         } else {
             contentDiv.textContent = message.content;
         }
@@ -234,6 +307,27 @@ function renderMessages() {
     scrollToBottom();
 }
 
+function addIntentBadge(intent) {
+    const intentMap = {
+        'thong_tin_truong': '🏛️ Thông tin trường',
+        'tuyen_sinh': '📋 Tuyển sinh',
+        'dao_tao': '📚 Đào tạo',
+        'nghien_cuu': '🔬 Nghiên cứu',
+        'khac': '💬 Khác'
+    };
+    const intentText = intentMap[intent] || intent;
+
+    const badge = document.createElement('div');
+    badge.className = 'intent-badge';
+    badge.innerHTML = `🤖 Intent: ${intentText}`;
+    badge.style.cssText = 'font-size: 10px; color: #888; margin-top: 5px; padding-left: 10px;';
+
+    const lastMessage = dom.chatMessages?.lastElementChild;
+    if (lastMessage && lastMessage.classList.contains('robot')) {
+        lastMessage.appendChild(badge);
+    }
+}
+
 function scrollToBottom() {
     if (dom.chatMessages) {
         dom.chatMessages.scrollTop = dom.chatMessages.scrollHeight;
@@ -243,11 +337,6 @@ function scrollToBottom() {
 function formatTime() {
     const now = new Date();
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-}
-
-function formatFullTime() {
-    const now = new Date();
-    return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
 }
 
 // ==================== TYPING INDICATOR ====================
@@ -264,6 +353,7 @@ function showTypingIndicator() {
         <div class="message-content">
             <div class="typing-dots">
                 <span></span><span></span><span></span>
+                <span style="margin-left: 8px;">Robot đang nghĩ...</span>
             </div>
         </div>
     `;
@@ -285,15 +375,14 @@ async function sendToAPI(message) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-        // SỬA: Gửi đúng format backend mong đợi
         const response = await fetch(`${CHAT_CONFIG.API_URL}/api/chat`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                text: message,  // ✅ Đổi từ "message" thành "text"
-                timestamp: new Date().toISOString()
+                message: message,
+                session_id: null
             }),
             signal: controller.signal
         });
@@ -302,8 +391,8 @@ async function sendToAPI(message) {
 
         if (response.ok) {
             const data = await response.json();
-            // ✅ Lấy response từ backend
-            return data.response || data.reply || 'Xin lỗi, tôi chưa hiểu câu hỏi của bạn.';
+            // Backend trả về 'answer'
+            return data.answer || data.response || 'Xin lỗi, tôi chưa hiểu câu hỏi của bạn.';
         } else {
             throw new Error(`HTTP ${response.status}`);
         }
@@ -316,20 +405,15 @@ async function sendToAPI(message) {
 function getSmartFallbackResponse(message) {
     const msg = message.toLowerCase().trim();
 
-    // Từ khóa và câu trả lời
     const responses = [
-        { keywords: ['phòng 301', 'phong 301'], response: '📍 Phòng 301 nằm ở tầng 3, khu A, dãy phòng bên trái cầu thang chính. Đây là phòng họp của Khoa Công nghệ thông tin.' },
-        { keywords: ['phòng 302', 'phong 302'], response: '📍 Phòng 302 nằm ở tầng 3, khu A. Đây là văn phòng Khoa Công nghệ thông tin.' },
-        { keywords: ['phòng 303', 'phong 303'], response: '📍 Phòng 303 nằm ở tầng 3, khu A. Đây là phòng thí nghiệm máy tính.' },
-        { keywords: ['thành lập', 'năm thành lập', '1945'], response: '🏛️ Đại học Giao thông Vận tải được thành lập vào năm 1945, là một trong những trường đại học lâu đời nhất Việt Nam.' },
-        { keywords: ['khoa công nghệ thông tin', 'khoa cntt', 'cntt'], response: '💻 Khoa Công nghệ thông tin nằm tại tầng 5, tòa nhà A. Số điện thoại: (024) 3766 1234.' },
-        { keywords: ['thư viện', 'thu vien'], response: '📚 Thư viện trường nằm ở tầng 2, tòa nhà trung tâm. Mở cửa từ 7:30 đến 21:00 các ngày trong tuần.' },
-        { keywords: ['căn tin', 'can tin'], response: '🍽️ Căn tin nằm ở tầng 1, cạnh sảnh chính. Phục vụ từ 6:30 đến 18:30 hàng ngày.' },
-        { keywords: ['robot', 'eeec'], response: '🤖 Tôi là Robot EEEC, trợ lý thông minh của Đại học Giao thông Vận tải. Tôi có thể giúp bạn tra cứu thông tin về trường, chỉ đường, và cập nhật tin tức.' },
-        { keywords: ['chào', 'hello', 'hi'], response: 'Xin chào! Rất vui được gặp bạn. Tôi có thể giúp gì cho bạn hôm nay?' },
-        { keywords: ['cảm ơn', 'cam on', 'thank'], response: 'Không có gì! Rất vui được giúp đỡ bạn. Nếu cần thêm thông tin gì, hãy hỏi tôi nhé!' },
-        { keywords: ['tạm biệt', 'tam biet', 'bye'], response: 'Tạm biệt! Chúc bạn một ngày tốt lành. Hẹn gặp lại bạn sau!' },
-        { keywords: ['giúp', 'help'], response: 'Tôi có thể giúp bạn:\n• Tìm phòng học (VD: phòng 301 ở đâu)\n• Tra cứu thông tin trường (VD: năm thành lập)\n• Tìm vị trí khoa/phòng ban\n• Cập nhật tin tức mới nhất\n• Chỉ đường trong tòa nhà\nHãy thử hỏi tôi nhé!' }
+        { keywords: ['ở đâu', 'địa chỉ', 'cơ sở'], response: '📍 **Địa chỉ Trường Đại học Giao thông Vận tải (UTC):**\n\n🏛️ **Cơ sở Hà Nội:** Số 3 Cầu Giấy, Phường Láng Thượng, Quận Đống Đa, Hà Nội\n📞 (024) 3766 3311\n\n🏛️ **Cơ sở TP.HCM:** 450-451 Lê Văn Việt, Phường Tăng Nhơn Phú, TP. Thủ Đức, TP.HCM\n📞 (028) 3896 6798' },
+        { keywords: ['ngành ô tô', 'kỹ thuật ô tô'], response: '🚗 **Ngành Kỹ thuật ô tô**\n\n**Môn học chính:** Cấu tạo ô tô, Động cơ đốt trong, Hệ thống điện ô tô, Chẩn đoán kỹ thuật, Bảo dưỡng sửa chữa.\n\n**Thời gian:** 4 năm\n**Cơ hội việc làm:** Cao' },
+        { keywords: ['ngành nào', 'những ngành'], response: '📚 **Các ngành đào tạo chính:**\n\n🏗️ **Kỹ thuật:** Ô tô, Cầu đường, Xây dựng, CNTT\n📊 **Kinh tế:** Logistics, Quản trị kinh doanh, Kế toán\n🌐 **Chương trình chất lượng cao & liên kết quốc tế**' },
+        { keywords: ['tuyển sinh', 'điểm chuẩn', 'xét tuyển'], response: '📋 **Thông tin tuyển sinh UTC:**\n\n**Phương thức:** Xét THPT, Xét học bạ, Xét tuyển thẳng\n**Thời gian:** Tháng 3-7 hàng năm\n🔗 Chi tiết: https://tuyensinh.utc.edu.vn' },
+        { keywords: ['học phí'], response: '💰 **Học phí tham khảo:**\n- Hệ đại trà: 15-25 triệu/năm\n- Chất lượng cao: 25-35 triệu/năm\n- Liên kết quốc tế: Theo chương trình\n\n*Liên hệ phòng Đào tạo để biết thông tin chính xác*' },
+        { keywords: ['chào', 'hello', 'hi'], response: '🤖 Xin chào! Tôi là Robot EEEC, trợ lý ảo của Trường Đại học Giao thông Vận tải. Tôi có thể giúp gì cho bạn hôm nay?' },
+        { keywords: ['cảm ơn', 'cam on'], response: '😊 Không có gì! Rất vui được giúp đỡ bạn.' },
+        { keywords: ['tạm biệt', 'bye'], response: '👋 Tạm biệt! Chúc bạn một ngày tốt lành!' }
     ];
 
     for (const item of responses) {
@@ -340,7 +424,7 @@ function getSmartFallbackResponse(message) {
         }
     }
 
-    return 'Xin lỗi, tôi chưa hiểu câu hỏi của bạn. Bạn có thể thử hỏi:\n• phòng 301 ở đâu?\n• trường thành lập năm nào?\n• khoa công nghệ thông tin ở đâu?\n• thư viện ở tầng mấy?\n• căn tin ở đâu?';
+    return '🤔 Xin lỗi, tôi chưa có thông tin về câu hỏi này. Bạn có thể hỏi về:\n- Địa chỉ trường\n- Các ngành đào tạo\n- Tuyển sinh\n- Học phí\n- Thông tin chung về UTC';
 }
 
 // ==================== SEND MESSAGE ====================
@@ -358,37 +442,39 @@ async function sendMessage(message) {
     // Hiển thị typing indicator
     showTypingIndicator();
 
-    // Gửi đến API và nhận phản hồi
-    const reply = await sendToAPI(message);
-
-    // Ẩn typing indicator
-    hideTypingIndicator();
-
-    // Thêm tin nhắn robot
-    addMessage('robot', reply, true);
+    // Ưu tiên gửi qua WebSocket nếu có
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify({ message: message }));
+        // WebSocket sẽ xử lý response qua onmessage
+    } else {
+        // Fallback sang HTTP API
+        const reply = await sendToAPI(message);
+        hideTypingIndicator();
+        addMessage('robot', reply, true);
+    }
 }
 
 // ==================== WELCOME MESSAGE ====================
 function addWelcomeMessage() {
-    const welcomeMessage = `
-        <strong>Xin chào! Tôi là Robot EEEC</strong><br><br>
-        Tôi là trợ lý thông minh của <strong>Đại học Giao thông Vận tải</strong>.<br><br>
-        Tôi có thể giúp bạn:
-        <ul>
-            <li>📍 Chỉ đường trong tòa nhà 15 tầng</li>
-            <li>📚 Trả lời câu hỏi về trường</li>
-            <li>📰 Cập nhật tin tức mới nhất</li>
-            <li>📷 Nhận diện vật thể qua camera</li>
-        </ul>
-        <br>
-        <strong>💡 Một số câu hỏi gợi ý:</strong><br>
-        • "phòng 301 ở đâu?"<br>
-        • "trường thành lập năm nào?"<br>
-        • "khoa công nghệ thông tin ở đâu?"<br>
-        • "thư viện ở tầng mấy?"<br>
-        • "căn tin ở đâu?"<br><br>
-        Hãy hỏi tôi bất cứ điều gì bạn cần!
-    `;
+    const welcomeMessage = `🤖 **Xin chào! Tôi là Robot EEEC**
+
+Tôi là trợ lý thông minh của **Đại học Giao thông Vận tải**.
+
+**Tôi có thể giúp bạn:**
+• 📍 Tra cứu địa chỉ, thông tin trường
+• 📚 Tìm hiểu các ngành đào tạo
+• 📋 Thông tin tuyển sinh
+• 🔬 Nghiên cứu khoa học
+• 💬 Trò chuyện, giải đáp thắc mắc
+
+**💡 Thử hỏi tôi:**
+• "Trường UTC ở đâu?"
+• "Ngành Kỹ thuật ô tô học gì?"
+• "Tuyển sinh năm nay thế nào?"
+• "Trường có những ngành nào?"
+
+Hãy hỏi tôi bất cứ điều gì bạn cần! 🚀`;
+
     addMessage('robot', welcomeMessage, true);
 }
 
@@ -405,42 +491,6 @@ function setupSuggestionButtons() {
     });
 }
 
-// ==================== EVENT LISTENERS ====================
-function setupEventListeners() {
-    // Send button
-    if (dom.sendBtn) {
-        dom.sendBtn.addEventListener('click', () => {
-            if (dom.textInput) {
-                sendMessage(dom.textInput.value);
-            }
-        });
-    }
-
-    // Enter key
-    if (dom.textInput) {
-        dom.textInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage(dom.textInput.value);
-            }
-        });
-    }
-
-    // Voice button
-    if (dom.voiceBtn) {
-        dom.voiceBtn.addEventListener('click', startVoiceRecording);
-    }
-
-    // Clear button
-    if (dom.clearBtn) {
-        dom.clearBtn.addEventListener('click', () => {
-            if (confirm('Bạn có chắc chắn muốn xóa toàn bộ lịch sử trò chuyện?')) {
-                clearChatHistory();
-            }
-        });
-    }
-}
-
 // ==================== ADD TYPING STYLES ====================
 function addTypingStyles() {
     if (document.getElementById('typingStyles')) return;
@@ -450,13 +500,14 @@ function addTypingStyles() {
     style.textContent = `
         .typing-dots {
             display: flex;
+            align-items: center;
             gap: 6px;
             padding: 4px 0;
         }
         .typing-dots span {
             width: 8px;
             height: 8px;
-            background: #ffdd44;
+            background: #667eea;
             border-radius: 50%;
             animation: typingBounce 1.4s infinite ease-in-out;
         }
@@ -464,20 +515,54 @@ function addTypingStyles() {
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
         @keyframes typingBounce {
-            0%, 60%, 100% {
-                transform: translateY(0);
-                opacity: 0.5;
-            }
-            30% {
-                transform: translateY(-12px);
-                opacity: 1;
-            }
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+            30% { transform: translateY(-10px); opacity: 1; }
         }
         .typing-indicator-container {
             opacity: 0.8;
         }
+        .intent-badge {
+            font-size: 10px;
+            color: #888;
+            margin-top: 5px;
+            padding-left: 10px;
+        }
+        .message-time {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 5px;
+            text-align: right;
+        }
     `;
     document.head.appendChild(style);
+}
+
+// ==================== EVENT LISTENERS ====================
+function setupEventListeners() {
+    if (dom.sendBtn) {
+        dom.sendBtn.addEventListener('click', () => {
+            if (dom.textInput) {
+                sendMessage(dom.textInput.value);
+            }
+        });
+    }
+
+    if (dom.textInput) {
+        dom.textInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage(dom.textInput.value);
+            }
+        });
+    }
+
+    if (dom.voiceBtn) {
+        dom.voiceBtn.addEventListener('click', startVoiceRecording);
+    }
+
+    if (dom.clearBtn) {
+        dom.clearBtn.addEventListener('click', clearChatHistory);
+    }
 }
 
 // ==================== INITIALIZATION ====================
@@ -490,8 +575,16 @@ function init() {
     dom.clearBtn = document.getElementById('clearChatBtn');
     dom.voiceStatus = document.getElementById('voiceStatus');
 
+    if (!dom.chatMessages) {
+        console.error('Required DOM elements not found');
+        return;
+    }
+
     // Thêm styles
     addTypingStyles();
+
+    // Khởi tạo WebSocket
+    initWebSocket();
 
     // Khởi tạo voice recognition
     initVoiceRecognition();
@@ -511,26 +604,8 @@ function init() {
     // Cuộn xuống cuối
     scrollToBottom();
 
-    console.log('Chat page initialized - Robot EEEC');
-}
-
-// Kiểm tra câu hỏi nhanh từ localStorage
-function checkQuickQuestion() {
-    try {
-        const quickQuestion = localStorage.getItem('quickQuestion');
-        if (quickQuestion) {
-            localStorage.removeItem('quickQuestion');
-            setTimeout(() => {
-                sendMessage(quickQuestion);
-            }, 500);
-        }
-    } catch (e) {
-        console.error('Cannot check quick question:', e);
-    }
+    console.log('✅ Chat page initialized - Robot EEEC');
 }
 
 // Khởi tạo khi DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-    init();
-    checkQuickQuestion();
-});
+document.addEventListener('DOMContentLoaded', init);

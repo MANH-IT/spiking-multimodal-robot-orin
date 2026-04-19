@@ -10,7 +10,7 @@ from pathlib import Path
 import json
 
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from scripts.snn_nlu_bridge import init, understand
+from scripts.snn_nlu_bridge import init, understand, understand_advanced
 from nlp_system.inference.knowledge_engine import get_knowledge_engine
 from multimodal_fusion.bridges.vision_nlp_bridge import VisionNLPBridge
 from vision_system.models.snn.depth_aware_snn import DepthAwareSNN
@@ -89,14 +89,21 @@ async def chat(request: Request):
     try:
         data = await request.json()
         text = data.get("text", "")
+        use_advanced = data.get("advanced", False)  # cho phép bật/tắt advanced mode
+        
         if not text:
             return {"response": "Xin lỗi, bạn chưa nhập câu hỏi nào cả!", "intent": "unknown", "confidence": 0}
         
-        result = understand(text)
+        if use_advanced:
+            result = understand_advanced(text)
+        else:
+            result = understand(text)
+        
         return {
             "response": result.get("response", result.get("answer", "Xin lỗi, tôi chưa hiểu câu hỏi của bạn!")),
             "intent": result.get("intent"),
-            "confidence": result.get("confidence", 0)
+            "confidence": result.get("confidence", 0),
+            "model": result.get("model", "legacy")
         }
     except Exception as e:
         print(f"Chat API Error: {e}")

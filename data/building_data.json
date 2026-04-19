@@ -1,0 +1,728 @@
+{
+    "building_name": "Tòa nhà 15 tầng - Đại học Giao thông Vận tải",
+    "total_floors": 16,
+    "floors": [
+        {
+            "floor": 1,
+            "name": "Tầng 1 - Hành chính",
+            "rooms": [
+                {
+                    "code": "101",
+                    "name": "Phòng Hành chính Tổng hợp (Bộ phận Văn thư)"
+                },
+                {
+                    "code": "102",
+                    "name": "Phòng Hành chính Tổng hợp"
+                },
+                {
+                    "code": "103",
+                    "name": "Phòng Máy chủ"
+                },
+                {
+                    "code": "104",
+                    "name": "Phòng Quản lý Tòa nhà và Trực PCCC"
+                }
+            ]
+        },
+        {
+            "floor": 2,
+            "name": "Tầng 2 - Hội trường",
+            "rooms": [
+                {
+                    "code": "201",
+                    "name": "Phòng Khánh tiết"
+                },
+                {
+                    "code": "202",
+                    "name": "Phòng Truyền thống"
+                },
+                {
+                    "code": "203",
+                    "name": "Phòng Hội thảo"
+                }
+            ]
+        },
+        {
+            "floor": 3,
+            "name": "Tầng 3 - Khoa Công nghệ Thông tin & Khoa Điện - Điện tử",
+            "rooms": [
+                {
+                    "code": "301",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "302",
+                    "name": "Trưởng khoa Công nghệ Thông tin"
+                },
+                {
+                    "code": "303",
+                    "name": "Văn phòng Khoa Công nghệ Thông tin"
+                },
+                {
+                    "code": "304",
+                    "name": "Bộ môn Điều khiển học"
+                },
+                {
+                    "code": "305",
+                    "name": "Bộ môn Điều khiển học"
+                },
+                {
+                    "code": "306",
+                    "name": "Bộ môn Mạng và các Hệ thống Thông tin"
+                },
+                {
+                    "code": "307",
+                    "name": "Bộ môn Mạng và các Hệ thống Thông tin"
+                },
+                {
+                    "code": "308",
+                    "name": "Bộ môn Khoa học Máy tính"
+                },
+                {
+                    "code": "309",
+                    "name": "Bộ môn Điều khiển và Tự động hóa Giao thông"
+                },
+                {
+                    "code": "310",
+                    "name": "Bộ môn Điều khiển và Tự động hóa Giao thông"
+                },
+                {
+                    "code": "311",
+                    "name": "Bộ môn Khoa học Máy tính"
+                },
+                {
+                    "code": "312",
+                    "name": "Bộ môn Công nghệ Phần mềm"
+                }
+            ]
+        },
+        {
+            "floor": 4,
+            "name": "Tầng 4 - Khoa Điện - Điện tử",
+            "rooms": [
+                {
+                    "code": "401",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "402",
+                    "name": "Bộ môn Kỹ thuật Điện tử"
+                },
+                {
+                    "code": "403",
+                    "name": "Trưởng khoa Điện - Điện tử"
+                },
+                {
+                    "code": "404",
+                    "name": "Văn phòng Khoa Điện - Điện tử"
+                },
+                {
+                    "code": "405",
+                    "name": "Bộ môn Kỹ thuật Thông tin"
+                },
+                {
+                    "code": "406",
+                    "name": "Bộ môn Kỹ thuật Điện"
+                },
+                {
+                    "code": "407",
+                    "name": "Bộ môn Kỹ thuật Điện"
+                },
+                {
+                    "code": "408",
+                    "name": "Bộ môn Kỹ thuật Viễn thông"
+                },
+                {
+                    "code": "409",
+                    "name": "Bộ môn Kỹ thuật Viễn thông"
+                },
+                {
+                    "code": "410",
+                    "name": "Bộ môn Kỹ thuật Viễn thông"
+                },
+                {
+                    "code": "411",
+                    "name": "Bộ môn Kỹ thuật Viễn thông"
+                },
+                {
+                    "code": "412",
+                    "name": "Bộ môn Kỹ thuật Điện tử"
+                }
+            ]
+        },
+        {
+            "floor": 5,
+            "name": "Tầng 5 - Khoa Kỹ thuật Xây dựng",
+            "rooms": [
+                {
+                    "code": "501",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "502",
+                    "name": "Bộ môn Kỹ thuật Hạ tầng Đô thị"
+                },
+                {
+                    "code": "503",
+                    "name": "Trưởng khoa Kỹ thuật Xây dựng"
+                },
+                {
+                    "code": "504",
+                    "name": "Văn phòng Khoa Kỹ thuật Xây dựng"
+                },
+                {
+                    "code": "505",
+                    "name": "Bộ môn Vật liệu Xây dựng"
+                },
+                {
+                    "code": "506",
+                    "name": "Bộ môn Vật liệu Xây dựng"
+                },
+                {
+                    "code": "507",
+                    "name": "Bộ môn Vật liệu Xây dựng"
+                },
+                {
+                    "code": "508",
+                    "name": "Bộ môn Kết cấu Xây dựng"
+                },
+                {
+                    "code": "509",
+                    "name": "Bộ môn Kết cấu Xây dựng"
+                },
+                {
+                    "code": "510",
+                    "name": "Bộ môn Kết cấu Xây dựng"
+                },
+                {
+                    "code": "511",
+                    "name": "Bộ môn Kết cấu Xây dựng"
+                },
+                {
+                    "code": "512",
+                    "name": "Bộ môn Kỹ thuật Hạ tầng Đô thị"
+                }
+            ]
+        },
+        {
+            "floor": 6,
+            "name": "Tầng 6 - Khoa Quản lý Xây dựng, Khoa Môi trường và An toàn Giao thông",
+            "rooms": [
+                {
+                    "code": "601",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "602",
+                    "name": "Trưởng khoa Quản lý Xây dựng"
+                },
+                {
+                    "code": "603",
+                    "name": "Văn phòng Khoa Quản lý Xây dựng"
+                },
+                {
+                    "code": "604",
+                    "name": "Bộ môn Kinh tế Xây dựng"
+                },
+                {
+                    "code": "605",
+                    "name": "Bộ môn Kỹ thuật Môi trường"
+                },
+                {
+                    "code": "606",
+                    "name": "Bộ môn Kỹ thuật An toàn Giao thông"
+                },
+                {
+                    "code": "607",
+                    "name": "Văn phòng Khoa Môi trường và An toàn Giao thông"
+                },
+                {
+                    "code": "608",
+                    "name": "Trưởng khoa Môi trường và An toàn Giao thông"
+                },
+                {
+                    "code": "609",
+                    "name": "Bộ môn Kinh tế Xây dựng"
+                },
+                {
+                    "code": "610",
+                    "name": "Bộ môn Dự án và Quản lý Dự án"
+                },
+                {
+                    "code": "611",
+                    "name": "Bộ môn Dự án và Quản lý Dự án"
+                },
+                {
+                    "code": "612",
+                    "name": "Bộ môn Kinh tế Xây dựng"
+                }
+            ]
+        },
+        {
+            "floor": 7,
+            "name": "Tầng 7 - Khoa Vận tải - Kinh tế",
+            "rooms": [
+                {
+                    "code": "701",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "702",
+                    "name": "Bộ môn Vận tải Đường bộ và Thành phố"
+                },
+                {
+                    "code": "703",
+                    "name": "Bộ môn Vận tải Đường bộ và Thành phố"
+                },
+                {
+                    "code": "704",
+                    "name": "Bộ môn Vận tải Đường bộ và Thành phố"
+                },
+                {
+                    "code": "705",
+                    "name": "Bộ môn Kế toán - Kiểm toán"
+                },
+                {
+                    "code": "706",
+                    "name": "Bộ môn Cơ sở Kinh tế và Quản lý"
+                },
+                {
+                    "code": "707",
+                    "name": "Bộ môn Cơ sở Kinh tế và Quản lý"
+                },
+                {
+                    "code": "708",
+                    "name": "Bộ môn Quản trị Kinh doanh"
+                },
+                {
+                    "code": "709",
+                    "name": "Bộ môn Vận tải Đường bộ và Thành phố"
+                },
+                {
+                    "code": "710",
+                    "name": "Bộ môn Vận tải Đường bộ và Thành phố"
+                },
+                {
+                    "code": "711",
+                    "name": "Bộ môn Quản trị Kinh doanh"
+                },
+                {
+                    "code": "712",
+                    "name": "Bộ môn Kinh tế Bưu chính Viễn thông"
+                }
+            ]
+        },
+        {
+            "floor": 8,
+            "name": "Tầng 8 - Khoa Vận tải - Kinh tế",
+            "rooms": [
+                {
+                    "code": "801",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "802",
+                    "name": "Trưởng khoa Vận tải - Kinh tế"
+                },
+                {
+                    "code": "803",
+                    "name": "Phó trưởng khoa Vận tải - Kinh tế"
+                },
+                {
+                    "code": "804",
+                    "name": "Văn phòng Khoa Vận tải - Kinh tế"
+                },
+                {
+                    "code": "805",
+                    "name": "Bộ môn Kinh tế Vận tải"
+                },
+                {
+                    "code": "806",
+                    "name": "Bộ môn Quy hoạch và Quản lý Giao thông Vận tải"
+                },
+                {
+                    "code": "809",
+                    "name": "Bộ môn Kinh tế Vận tải và Du lịch"
+                },
+                {
+                    "code": "810",
+                    "name": "Bộ môn Kinh tế Vận tải và Du lịch"
+                },
+                {
+                    "code": "811",
+                    "name": "Bộ môn Kinh tế Vận tải và Du lịch"
+                },
+                {
+                    "code": "812",
+                    "name": "Bộ môn Vận tải và Kinh tế Đường sắt"
+                }
+            ]
+        },
+        {
+            "floor": 9,
+            "name": "Tầng 9 - Khoa Công trình",
+            "rooms": [
+                {
+                    "code": "901",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "902",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "903",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "904",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "905",
+                    "name": "Bộ môn Công trình Giao thông Thành phố và Công trình Thủy"
+                },
+                {
+                    "code": "906",
+                    "name": "Bộ môn Công trình Giao thông Thành phố và Công trình Thủy"
+                },
+                {
+                    "code": "907",
+                    "name": "Bộ môn Công trình Giao thông Thành phố và Công trình Thủy"
+                },
+                {
+                    "code": "908",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "909",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "910",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "911",
+                    "name": "Bộ môn Cầu hầm"
+                },
+                {
+                    "code": "912",
+                    "name": "Bộ môn Cầu hầm"
+                }
+            ]
+        },
+        {
+            "floor": 10,
+            "name": "Tầng 10 - Khoa Công trình",
+            "rooms": [
+                {
+                    "code": "1001",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "1002",
+                    "name": "Bộ môn Đường bộ"
+                },
+                {
+                    "code": "1003",
+                    "name": "Bộ môn Đường bộ"
+                },
+                {
+                    "code": "1004",
+                    "name": "Bộ môn Đường bộ"
+                },
+                {
+                    "code": "1005",
+                    "name": "Bộ môn Đường bộ"
+                },
+                {
+                    "code": "1006",
+                    "name": "Bộ môn Đường bộ"
+                },
+                {
+                    "code": "1007",
+                    "name": "Bộ môn Đường ô tô và Sân bay"
+                },
+                {
+                    "code": "1008",
+                    "name": "Bộ môn Đường ô tô và Sân bay"
+                },
+                {
+                    "code": "1009",
+                    "name": "Bộ môn Đường ô tô và Sân bay"
+                },
+                {
+                    "code": "1010",
+                    "name": "Bộ môn Đường ô tô và Sân bay"
+                },
+                {
+                    "code": "1011",
+                    "name": "Bộ môn Đường ô tô và Sân bay"
+                },
+                {
+                    "code": "1012",
+                    "name": "Bộ môn Đường bộ"
+                }
+            ]
+        },
+        {
+            "floor": 11,
+            "name": "Tầng 11 - Khoa Công trình",
+            "rooms": [
+                {
+                    "code": "1101",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "1102",
+                    "name": "Bộ môn Thủy lực - Thủy văn"
+                },
+                {
+                    "code": "1103",
+                    "name": "Bộ môn Công trình Giao thông Công chính và Môi trường"
+                },
+                {
+                    "code": "1104",
+                    "name": "Bộ môn Trắc địa"
+                },
+                {
+                    "code": "1105",
+                    "name": "Bộ môn Trắc địa"
+                },
+                {
+                    "code": "1106",
+                    "name": "Bộ môn Công trình Giao thông Công chính và Môi trường"
+                },
+                {
+                    "code": "1107",
+                    "name": "Bộ môn Kết cấu"
+                },
+                {
+                    "code": "1108",
+                    "name": "Bộ môn Kết cấu"
+                },
+                {
+                    "code": "1109",
+                    "name": "Bộ môn Kết cấu"
+                },
+                {
+                    "code": "1110",
+                    "name": "Bộ môn Kết cấu"
+                },
+                {
+                    "code": "1111",
+                    "name": "Bộ môn Kết cấu"
+                },
+                {
+                    "code": "1112",
+                    "name": "Bộ môn Thủy lực - Thủy văn"
+                }
+            ]
+        },
+        {
+            "floor": 12,
+            "name": "Tầng 12 - Khoa Công trình",
+            "rooms": [
+                {
+                    "code": "1201",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "1202",
+                    "name": "Bộ môn Địa kỹ thuật"
+                },
+                {
+                    "code": "1203",
+                    "name": "Bộ môn Đường sắt"
+                },
+                {
+                    "code": "1204",
+                    "name": "Bộ môn Sức bền Vật liệu"
+                },
+                {
+                    "code": "1205",
+                    "name": "Bộ môn Sức bền Vật liệu"
+                },
+                {
+                    "code": "1206",
+                    "name": "Bộ môn Đường sắt"
+                },
+                {
+                    "code": "1207",
+                    "name": "Bộ môn Đường sắt"
+                },
+                {
+                    "code": "1208",
+                    "name": "Trưởng khoa Công trình"
+                },
+                {
+                    "code": "1209",
+                    "name": "Phó trưởng khoa Công trình"
+                },
+                {
+                    "code": "1210",
+                    "name": "Văn phòng Khoa Công trình"
+                },
+                {
+                    "code": "1211",
+                    "name": "Bộ môn Địa kỹ thuật"
+                },
+                {
+                    "code": "1212",
+                    "name": "Bộ môn Địa kỹ thuật"
+                }
+            ]
+        },
+        {
+            "floor": "12A",
+            "name": "Tầng 12A - Khoa Cơ khí và Khoa Công trình",
+            "rooms": [
+                {
+                    "code": "12A01",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "12A02",
+                    "name": "Bộ môn Cơ khí Ô tô"
+                },
+                {
+                    "code": "12A03",
+                    "name": "Bộ môn Cơ khí Ô tô"
+                },
+                {
+                    "code": "12A04",
+                    "name": "Bộ môn Cơ khí Ô tô"
+                },
+                {
+                    "code": "12A05",
+                    "name": "Bộ môn Cơ khí Ô tô"
+                },
+                {
+                    "code": "12A06",
+                    "name": "Bộ môn Tự động hóa Thiết kế Cầu đường"
+                },
+                {
+                    "code": "12A07",
+                    "name": "Bộ môn Công nghệ Giao thông"
+                },
+                {
+                    "code": "12A08",
+                    "name": "Bộ môn Công nghệ Giao thông"
+                },
+                {
+                    "code": "12A09",
+                    "name": "Bộ môn Công nghệ Giao thông"
+                },
+                {
+                    "code": "12A10",
+                    "name": "Bộ môn Công nghệ Giao thông"
+                },
+                {
+                    "code": "12A11",
+                    "name": "Bộ môn Máy Động lực"
+                },
+                {
+                    "code": "12A12",
+                    "name": "Bộ môn Kỹ thuật Nhiệt"
+                }
+            ]
+        },
+        {
+            "floor": 14,
+            "name": "Tầng 14 - Khoa Cơ khí",
+            "rooms": [
+                {
+                    "code": "1401",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "1402",
+                    "name": "Trưởng khoa Cơ khí"
+                },
+                {
+                    "code": "1403",
+                    "name": "Phó trưởng khoa Cơ khí"
+                },
+                {
+                    "code": "1404",
+                    "name": "Văn phòng Khoa Cơ khí"
+                },
+                {
+                    "code": "1405",
+                    "name": "Bộ môn Thiết kế Máy"
+                },
+                {
+                    "code": "1406",
+                    "name": "Bộ môn Đầu máy Toa xe"
+                },
+                {
+                    "code": "1407",
+                    "name": "Bộ môn Đầu máy Toa xe"
+                },
+                {
+                    "code": "1409",
+                    "name": "Bộ môn Máy Xây dựng"
+                },
+                {
+                    "code": "1410",
+                    "name": "Bộ môn Máy Xây dựng"
+                },
+                {
+                    "code": "1411",
+                    "name": "Bộ môn Máy Xây dựng"
+                },
+                {
+                    "code": "1412",
+                    "name": "Bộ môn Cơ điện tử"
+                }
+            ]
+        },
+        {
+            "floor": 15,
+            "name": "Tầng 15 - Khoa Lý luận Chính trị",
+            "rooms": [
+                {
+                    "code": "1501",
+                    "name": "Phòng họp"
+                },
+                {
+                    "code": "1502",
+                    "name": "Nhóm nghiên cứu Phương tiện Giao thông Thông minh"
+                },
+                {
+                    "code": "1503",
+                    "name": "Nhóm nghiên cứu AI - SHM"
+                },
+                {
+                    "code": "1504",
+                    "name": "Bộ môn Khoa học Mác - Lênin"
+                },
+                {
+                    "code": "1505",
+                    "name": "Bộ môn Khoa học Mác - Lênin"
+                },
+                {
+                    "code": "1506",
+                    "name": "Bộ môn Lịch sử Đảng Cộng sản Việt Nam"
+                },
+                {
+                    "code": "1507",
+                    "name": "Văn phòng Khoa Lý luận Chính trị"
+                },
+                {
+                    "code": "1508",
+                    "name": "Trưởng khoa Lý luận Chính trị"
+                },
+                {
+                    "code": "1509",
+                    "name": "Bộ môn Tư tưởng Hồ Chí Minh"
+                },
+                {
+                    "code": "1510",
+                    "name": "Bộ môn Tư tưởng Hồ Chí Minh"
+                }
+            ]
+        }
+    ]
+}
