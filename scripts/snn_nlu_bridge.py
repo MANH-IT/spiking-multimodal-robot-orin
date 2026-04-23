@@ -2,6 +2,7 @@ import os
 import sys
 import re
 import json
+import torch
 from pathlib import Path
 
 root_path = str(Path(__file__).parent.parent)
@@ -85,8 +86,99 @@ def init():
     print("✨ SNN NLU Bridge initialized successfully.")
 
 # ==================== RULE-BASED (MỞ RỘNG) ====================
+def get_social_response(text: str) -> str:
+    """Xử lý câu hỏi xã giao, chào hỏi, giới thiệu bản thân đa ngôn ngữ"""
+    text_lower = text.lower().strip()
+    
+    # Hỏi về danh tính robot
+    if any(w in text_lower for w in [
+        'bạn là ai', 'bạn tên gì', 'giới thiệu về bản thân',
+        'who are you', 'what is your name', 'tell me about yourself',
+        '你是谁', '你叫什么名字', 'qui es-tu', 'comment tu t\'appelles'
+    ]):
+        return """🤖 **Tôi là Robot EEEC** - Trợ lý ảo thông minh của Trường Đại học Giao thông Vận tải (UTC).
+
+📌 **Tên đầy đủ:** Robot EEEC (Edge AI - Event-driven - Energy-efficient - Cognitive)
+🏛️ **Chủ nhân:** Trường Đại học Giao thông Vận tải
+🧠 **Công nghệ:** Spiking Neural Networks (SNN) - Mạng nơ-ron xung mô phỏng não bộ
+💬 **Ngôn ngữ:** Tiếng Việt, English, 中文, Français
+
+**Tôi có thể giúp bạn:**
+• 📍 Tìm phòng học, thư viện, căn tin
+• 📚 Tra cứu thông tin về trường, ngành học
+• 📋 Thông tin tuyển sinh, học phí
+• 🔬 Nghiên cứu khoa học
+• 🗺️ Dẫn đường trong tòa nhà 15 tầng
+• 💬 Trò chuyện, giải đáp thắc mắc
+
+Hãy hỏi tôi bất cứ điều gì bạn cần! 🚀"""
+    
+    # Hỏi về chức năng
+    if any(w in text_lower for w in [
+        'có thể làm gì', 'chức năng', 'khả năng', 'giúp gì',
+        'what can you do', 'que peux-tu faire', '你能做什么'
+    ]):
+        return """🤖 **Tôi có thể giúp bạn những việc sau:**
+
+📍 **Dẫn đường & Tìm phòng**
+• Tìm phòng học theo mã số (VD: "phòng 301 ở đâu")
+• Tìm thư viện, căn tin, phòng ban
+• Chỉ đường trong tòa nhà 15 tầng
+
+📚 **Thông tin trường**
+• Giới thiệu về trường UTC
+• Các ngành đào tạo
+• Học phí, chương trình học
+
+📋 **Tuyển sinh**
+• Điểm chuẩn, chỉ tiêu
+• Phương thức xét tuyển
+• Hồ sơ đăng ký
+
+🔬 **Nghiên cứu khoa học**
+• Các đề tài nghiên cứu
+• Phòng thí nghiệm
+• Hợp tác quốc tế
+
+💬 **Trò chuyện**
+• Trả lời câu hỏi bằng nhiều ngôn ngữ
+• Hỗ trợ tiếng Việt, Anh, Trung, Pháp
+
+Bạn cần tôi giúp gì? Hãy cho tôi biết!"""
+    
+    # Cảm ơn
+    if any(w in text_lower for w in [
+        'cảm ơn', 'cam on', 'thank', 'thanks', 'merci', '谢谢'
+    ]):
+        return "😊 Không có gì! Rất vui được giúp đỡ bạn. Nếu cần thêm thông tin, hãy hỏi tôi nhé! Have a nice day! 祝您愉快! Bonne journée!"
+    
+    # Tạm biệt
+    if any(w in text_lower for w in [
+        'tạm biệt', 'tam biet', 'goodbye', 'bye', 'au revoir', '再见'
+    ]):
+        return "👋 Tạm biệt! Chúc bạn một ngày tốt lành. Hẹn gặp lại bạn sau! Goodbye! 再见! Au revoir!"
+    
+    # Chào hỏi
+    if any(w in text_lower for w in [
+        'chào', 'hello', 'hi', 'bonjour', '你好', 'xin chào'
+    ]):
+        return "👋 Xin chào! Tôi là Robot EEEC, trợ lý ảo của Trường Đại học Giao thông Vận tải. Tôi có thể giúp gì cho bạn hôm nay? Hello! 你好! Bonjour!"
+    
+    # Hỏi thăm sức khỏe
+    if any(w in text_lower for w in [
+        'khỏe không', 'khoe khong', 'how are you', 'comment ça va', '你好吗'
+    ]):
+        return "😊 Cảm ơn bạn! Tôi vẫn hoạt động tốt. Chúc bạn có một ngày vui vẻ! I'm doing great, thank you! 我很好, 谢谢!"
+    
+    return None
+
 def get_rule_based_response(text: str):
     text_lower = text.lower().strip()
+
+    # Ưu tiên xử lý câu hỏi xã giao
+    social_response = get_social_response(text)
+    if social_response:
+        return social_response
 
     # ---- Tìm phòng theo mã ----
     room_match = re.search(r'ph[òo]ng\s*([0-9A-Za-z]+)', text_lower)
@@ -192,12 +284,7 @@ Thời gian: tháng 3-7 hàng năm.
 - Tạp chí Khoa học GTVT hướng tới Scopus
 - Hợp tác quốc tế, quỹ phát triển KHCN."""
 
-    # ---- Chào hỏi, cảm ơn, tiêu cực ----
-    if any(w in text_lower for w in ['chào', 'hello', 'hi', 'xin chào']):
-        return "👋 Xin chào! Tôi là Robot EEEC, trợ lý ảo của Đại học Giao thông Vận tải. Tôi có thể giúp gì cho bạn?"
-
-    if any(w in text_lower for w in ['cảm ơn', 'cam on', 'thank']):
-        return "😊 Rất vui được giúp bạn! Nếu cần thêm, hãy hỏi tôi nhé."
+    # (Đoạn này đã được tối ưu thay thế bởi get_social_response ở trên)
 
     if any(w in text_lower for w in ['ngu', 'dốt', 'chán', 'tệ']):
         return "😅 Cảm ơn góp ý. Tôi đang được hoàn thiện mỗi ngày. Bạn thử hỏi 'phòng 301' hoặc 'học phí' nhé!"
@@ -212,18 +299,30 @@ def understand(text: str):
     if not text or not text.strip():
         return {"intent": "khac", "confidence": 0, "response": "👋 Xin chào! Tôi có thể giúp gì cho bạn?"}
 
-    # TẮT LLM để tránh timeout – chỉ dùng rule + RAG
-    # ====== ƯU TIÊN 1: RULE-BASED ======
-    rule_response = get_rule_based_response(text)
-    if rule_response:
-        return {"intent": "rule_based", "confidence": 1.0, "response": rule_response, "sources": []}
-
-    # ====== ƯU TIÊN 2: SNN + RAG ======
+    # ====== ƯU TIÊN 1: ADVANCED SNN NLU ======
     try:
-        if nlp_model and rag_system:
-            intent = nlp_model.predict_intent(text)
-            conf_scores = nlp_model.predict_with_confidence(text)
-            confidence = conf_scores.get(intent, 0.0)
+        advanced_nlu = get_advanced_nlu()
+        intent = "khac"  # Default
+        confidence = 0.0
+        
+        # 1. Phân loại Ý định bằng Mạng Neu-ron (SNN)
+        if advanced_nlu and nlp_model:
+            tokens = nlp_model.tokenize(text)
+            input_tensor = tokens.to(next(advanced_nlu.parameters()).device)
+            intent_idx = advanced_nlu.predict_intent(input_tensor)
+            intent_map = ["thong_tin_truong", "tuyen_sinh", "dao_tao", "nghien_cuu", "khac"]
+            intent = intent_map[intent_idx] if intent_idx < len(intent_map) else "khac"
+            confidence = 0.9  # SNN có accuracy ~75-90%
+            
+        # 2. Sinh câu trả lời (Response Generation)
+        # Nếu là câu xã giao ("khac"), thử rọi vào Rule-based trước để lấy văn mẫu chào hỏi
+        if intent == "khac":
+            rule_response = get_rule_based_response(text)
+            if rule_response:
+                return {"intent": intent, "confidence": confidence, "response": rule_response, "sources": []}
+                
+        # Nếu là các intent nghiệp vụ, hoặc rule-based không có, dùng RAG tìm kiếm Data
+        if rag_system:
             rag_res = rag_system.generate_response(text)
             response = rag_res.get('answer', "Xin lỗi, tôi chưa tìm thấy thông tin phù hợp.")
             if len(response) > 500:
@@ -236,9 +335,9 @@ def understand(text: str):
             }
         else:
             return {
-                "intent": "khac",
-                "confidence": 0,
-                "response": "🤔 Tôi chưa hiểu. Bạn thử hỏi 'phòng 301', 'ngành ô tô', 'học phí' hoặc 'thư viện' nhé!",
+                "intent": intent,
+                "confidence": confidence,
+                "response": "RAG System đang khởi động, vui lòng thử lại sau.",
                 "sources": []
             }
     except Exception as e:

@@ -10,13 +10,18 @@ class SpikingConv3DBlock(nn.Module):
         self.lif = ParametricLIF()
         self.pool = nn.MaxPool3d(pool_size) if pool_size else nn.Identity()
     def forward(self, x, mem=None):
-        # x: (T, B, C, H, W)
-        T,B,C,H,W = x.shape
+        # x: (T, B, C, H, W) hoặc (T, B, C, D, H, W)
+        if x.dim() == 6:
+            T, B, C, D, H, W = x.shape
+        else:
+            T, B, C, H, W = x.shape
+            D = 1
         if mem is None:
             mem = self.lif.init_mem(B, self.conv.out_channels, x.device)
         outputs = []
         for t in range(T):
-            cur = self.conv(x[t].unsqueeze(0))  # (1,B,out_ch,H,W)
+            inp = x[t] if x[t].dim() == 5 else x[t].unsqueeze(2)
+            cur = self.conv(inp)  # (B, C, D, H, W)
             cur = self.bn(cur)
             spk, mem = self.lif(cur, mem)
             spk = self.pool(spk)
@@ -35,12 +40,20 @@ class ThreeDSpikingCNN(nn.Module):
         self.conf_head = nn.Conv2d(64, 1, kernel_size=1)
         self.class_head = nn.Conv2d(64, num_classes, kernel_size=1)
         self.lif_out = ParametricLIF()
-    def forward(self, x):
+    def forward(self, x, return_feats=False):
         # x: (T, B, 4, 224, 224)
         spk1, _ = self.conv1(x)
         spk2, _ = self.conv2(spk1)
         spk3, _ = self.conv3(spk2)  # (T, B, 64, 28, 28)
-        feat = spk3.mean(dim=0)      # (B,64,28,28)
+        
+        if return_feats:
+            # Flatten spatial dims to fused with NLP features
+            return spk3  # (T, B, 64, 28, 28)
+
+        feat = spk3.mean(dim=0)      # (B,64,1,Hf,Wf) hoặc (B,64,Hf,Wf)
+        if feat.dim() == 5:
+            feat = feat.squeeze(2)   # (B,64,Hf,Wf)
+            
         box = self.box_head(feat)
         conf = self.conf_head(feat)
         cls = self.class_head(feat)

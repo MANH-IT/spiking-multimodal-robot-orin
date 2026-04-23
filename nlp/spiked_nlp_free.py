@@ -6,7 +6,7 @@ from underthesea import word_tokenize
 from typing import Dict
 
 class SpikedNLPFree(nn.Module):
-    def __init__(self, vocab_size=5000, embed_dim=64, num_classes=5):
+    def __init__(self, vocab_size=157, embed_dim=64, num_classes=5):
         super().__init__()
         self.embedding = nn.Embedding(vocab_size, embed_dim, padding_idx=0)
         self.fc1 = nn.Linear(embed_dim, 128)

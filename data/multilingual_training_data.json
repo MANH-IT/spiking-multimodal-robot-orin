@@ -1,0 +1,182 @@
+[
+    {
+        "text": "bạn là ai",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "bạn tên gì",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "giới thiệu về bản thân",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "robot có thể làm gì",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "chức năng của robot",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "cảm ơn robot",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "cảm ơn bạn",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "tạm biệt",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "hẹn gặp lại",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "bạn khỏe không",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "chào bạn",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "xin chào",
+        "intent": "khac",
+        "language": "vi"
+    },
+    {
+        "text": "Who are you",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "What is your name",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Tell me about yourself",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "What can you do",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Thank you",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Thanks robot",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Goodbye",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "See you later",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "How are you",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Hello",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "Hi there",
+        "intent": "khac",
+        "language": "en"
+    },
+    {
+        "text": "你是谁",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "你叫什么名字",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "你能做什么",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "谢谢",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "再见",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "你好",
+        "intent": "khac",
+        "language": "zh"
+    },
+    {
+        "text": "Qui es-tu",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Comment tu t'appelles",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Que peux-tu faire",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Merci",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Au revoir",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Bonjour",
+        "intent": "khac",
+        "language": "fr"
+    },
+    {
+        "text": "Comment ça va",
+        "intent": "khac",
+        "language": "fr"
+    }
+]

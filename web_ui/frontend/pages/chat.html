@@ -332,7 +332,7 @@
         .message-content hr {
             margin: 12px 0;
             border: none;
-            border-top: 1px solid rgba(0,153,255,0.2);
+            border-top: 1px solid rgba(0, 153, 255, 0.2);
         }
 
         .message-content ul {
@@ -689,8 +689,6 @@
                 </div>
                 <div class="chat-stats">
                     <div>SNN: <span class="stat-value">ONLINE</span></div>
-                    <div>RAG: <span class="stat-value">READY</span></div>
-                    <div>ASR: <span class="stat-value">FPT</span></div>
                     <div>LLM: <span class="stat-value">ACTIVE</span></div>
                 </div>
             </div>
@@ -724,7 +722,8 @@
                     <div class="input-wrapper">
                         <button id="camBtn" class="voice-btn" title="Chụp ảnh vật thể">📷</button>
                         <button id="voiceBtn" class="voice-btn">🎤</button>
-                        <input type="text" id="textInput" placeholder="Nhập câu hỏi hoặc chụp ảnh vật thể..." autocomplete="off">
+                        <input type="text" id="textInput" placeholder="Nhập câu hỏi hoặc chụp ảnh vật thể..."
+                            autocomplete="off">
                         <button id="sendBtn" class="send-btn">📤</button>
                     </div>
                     <div id="voiceStatus" class="voice-status"></div>
@@ -816,13 +815,13 @@
             const voices = window.speechSynthesis.getVoices();
             // Lọc ra danh sách giọng tiếng Việt và sắp xếp theo ưu tiên
             const viVoices = voices.filter(v => v.lang.includes('vi') || v.lang.includes('VI'));
-            
+
             if (viVoices.length > 0) {
                 // Thứ tự ưu tiên: Microsoft HoaiMy (Windows 10/11) -> Google Vietnamese -> Giọng tiếng Việt bất kỳ
-                voiceState.selectedVoice = 
-                    viVoices.find(v => v.name.includes('HoaiMy')) || 
-                    viVoices.find(v => v.name.includes('Google')) || 
-                    viVoices.find(v => v.name.includes('Vietnamese')) || 
+                voiceState.selectedVoice =
+                    viVoices.find(v => v.name.includes('HoaiMy')) ||
+                    viVoices.find(v => v.name.includes('Google')) ||
+                    viVoices.find(v => v.name.includes('Vietnamese')) ||
                     viVoices[0];
             } else {
                 voiceState.selectedVoice = voices[0];
@@ -940,21 +939,21 @@
 
         // Text to Speech - Gọi Google TTS từ server (giọng Việt tự nhiên)
         let currentAudio = null;
-        
+
         async function speakText(text) {
             // Dừng audio đang phát nếu có
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio = null;
             }
-            
+
             try {
                 const response = await fetch(`${API_URL}/api/tts`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text: text })
                 });
-                
+
                 if (response.ok) {
                     const audioBlob = await response.blob();
                     const audioUrl = URL.createObjectURL(audioBlob);
@@ -962,7 +961,7 @@
                     currentAudio.playbackRate = 1.0;
                     currentAudio.volume = 1.0;
                     currentAudio.play();
-                    
+
                     currentAudio.onended = () => {
                         URL.revokeObjectURL(audioUrl);
                         currentAudio = null;
@@ -976,7 +975,7 @@
                 speakTextFallback(text);
             }
         }
-        
+
         // Fallback: dùng giọng trình duyệt nếu server TTS lỗi
         function speakTextFallback(text) {
             if (!window.speechSynthesis) return;
@@ -1010,7 +1009,7 @@
         const voiceBtn = document.getElementById('voiceBtn');
         const camBtn = document.getElementById('camBtn');
         const clearChatBtn = document.getElementById('clearChatBtn');
-        
+
         // Camera Elements
         const cameraModal = document.getElementById('cameraModal');
         const cameraStream = document.getElementById('cameraStream');
@@ -1046,7 +1045,7 @@
             canvas.width = cameraStream.videoWidth;
             canvas.height = cameraStream.videoHeight;
             canvas.getContext('2d').drawImage(cameraStream, 0, 0);
-            
+
             canvas.toBlob((blob) => {
                 currentAttachment = blob;
                 previewImg.src = URL.createObjectURL(blob);
@@ -1076,7 +1075,7 @@
         function addMessage(type, content, imageBlob = null) {
             const now = new Date();
             const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-            
+
             let imageUrl = null;
             if (imageBlob) {
                 imageUrl = URL.createObjectURL(imageBlob);
@@ -1097,15 +1096,15 @@
                 .replace(/\n---\n/g, '<hr>')
                 .replace(/\n/g, '<br>');
 
-            chatHistory.push({ 
-                type: type, 
-                content: richContent, 
+            chatHistory.push({
+                type: type,
+                content: richContent,
                 time: timeStr,
-                image: imageUrl 
+                image: imageUrl
             });
             saveChatHistory();
             renderMessages();
-            
+
             if (type === 'robot') {
                 speakText(content);
             }
@@ -1116,7 +1115,7 @@
             chatHistory.forEach(msg => {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${msg.type}`;
-                
+
                 let imageHtml = '';
                 if (msg.image) {
                     imageHtml = `<img src="${msg.image}" class="message-image" alt="Attachment">`;
@@ -1159,12 +1158,12 @@
 
             const savedAttachment = currentAttachment;
             addMessage('user', message, savedAttachment);
-            
+
             // Reset input and attachment
             textInput.value = '';
             currentAttachment = null;
             attachmentPreview.style.display = 'none';
-            
+
             showTyping();
 
             try {

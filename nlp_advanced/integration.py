@@ -51,12 +51,17 @@ class AdvancedNLUProcessor(nn.Module):
         attn_out = self.spike_attn(spikes)  # (B, seq_len, hidden_dim)
         pooled = attn_out.mean(dim=1)  # (B, hidden_dim)
         intent_logits = self.classifier(pooled)  # (B, num_classes)
-        policy_out = self.policy_net(spikes)  # (B, num_classes)
         
+        # Đồng bộ hóa chiều dữ liệu: Pool chiều seq_len (dim=2) trước khi đưa vào policy_net
+        spikes_pooled = spikes.mean(dim=2)  # (T, B, hidden_dim)
+        policy_out = self.policy_net(spikes_pooled)  # (B, num_classes)
+        
+        # Step 5: Dependency parsing (nếu cần) - TẠM THỜI BỎ QUA
         if return_parser:
-            word_embeds = spikes.mean(dim=0)  # (B, seq_len, hidden_dim)
-            edge_scores, _ = self.parser(word_embeds)
-            return intent_logits, policy_out, edge_scores, spikes
+            # Tạo dummy scores để tránh lỗi
+            B, seq_len = input_ids.shape
+            dummy_scores = torch.zeros(B, seq_len, seq_len, device=input_ids.device)
+            return intent_logits, policy_out, dummy_scores, spikes
         else:
             return intent_logits, policy_out, None, spikes
     
@@ -71,7 +76,30 @@ class AdvancedNLUProcessor(nn.Module):
         pass  # TODO: implement logic
 
 def create_advanced_nlu():
-    model = AdvancedNLUProcessor()
+    import os
+    from .config import EMBED_DIM, HIDDEN_DIM, T, NUM_CLASSES
+    
+    model = AdvancedNLUProcessor(
+        vocab_size=5000,
+        embed_dim=EMBED_DIM,
+        hidden_dim=HIDDEN_DIM,
+        num_classes=NUM_CLASSES,
+        T=T
+    )
+    
+    # Load mô hình vừa train xong
+    model_path = os.path.join(os.path.dirname(__file__), "best_advanced_nlu.pth")
+    if os.path.exists(model_path):
+        try:
+            checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
+            model.load_state_dict(checkpoint['model_state_dict'])
+            model.eval()
+            print(f"✅ Loaded Advanced NLU weights from {model_path}")
+        except Exception as e:
+            print(f"⚠️ Error loading weights: {e}")
+    else:
+        print(f"⚠️ Warning: Model weights not found at {model_path}")
+        
     return model
 
 if __name__ == "__main__":

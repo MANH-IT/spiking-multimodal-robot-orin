@@ -378,8 +378,8 @@ def main():
         device=device
     )
     
-    # Train full scale up to 200
-    trainer.train(epochs=200)
+    # Train nhanh rút gọn xuống 10 epoch để tiết kiệm thời gian
+    trainer.train(epochs=50)
     
     print("\n✅ Training script completed!")
 
