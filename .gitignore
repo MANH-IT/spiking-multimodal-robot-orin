@@ -1,4 +1,28 @@
-venv/ 
-venv310/ 
-__pycache__/ 
-*.pyc 
+# Python
+__pycache__/
+*.pyc
+venv/
+venv310/
+.env
+
+# Data lớn (Lưu cục bộ)
+data/yolo_pseudo_labels/
+data/images/
+*.pt
+*.pkl
+
+# Weights (Chỉ giữ file best cần thiết)
+models/vision_finetuned/
+models/vision/
+!models/best_vision_snn.pth
+
+# Logs & IDE
+logs/
+*.log
+.vscode/
+.idea/
+.gemini/
+
+# OS
+.DS_Store
+Thumbs.db

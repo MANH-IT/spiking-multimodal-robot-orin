@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from multimodal_fusion.spiking_fusion import SpikingFusionNetwork
+from multimodal_fusion.spiking_fusion import SpikingFusionTransformer
 from scripts.snn_nlu_bridge import understand_advanced
 from vision_system.models.snn.three_d_spiking_cnn import ThreeDSpikingCNN
 from nlp_advanced.integration import create_advanced_nlu
@@ -28,8 +28,8 @@ class VisionNLPBridge:
         self.tokenizer = SpikedNLPFree()
         
         # 3. Khởi tạo Fusion Network
-        # nlp_dim=256 (đặc trưng từ NLU Spiking Attention)
-        self.fusion_net = SpikingFusionNetwork(vision_dim=64, nlp_dim=256, num_outputs=5)
+        # text_dim=128 (đặc trưng từ NLU Spiking Attention - hidden_dim=128)
+        self.fusion_net = SpikingFusionTransformer(vision_channels=64, text_dim=128, use_phobert=True)
         self.fusion_net.to(device).eval()
         
         print(f"✅ Spiking Multimodal Bridge initialized on {device} with REAL NLU Spikes.")
@@ -64,12 +64,12 @@ class VisionNLPBridge:
                 nlp_spikes = nlp_spikes[:T]
             
             # 3. Multimodal Fusion
-            fusion_output = self.fusion_net.predict(v_spikes, nlp_spikes)
-            multimodal_intent_idx = fusion_output.item()
+            # SpikingFusionTransformer.predict expects (vision_spikes, text_input)
+            # nlp_spikes: (T, 1, 128)
+            fusion_output = self.fusion_net.predict(v_spikes, nlp_spikes.mean(dim=0))
+            final_intent = fusion_output["action_type"]
             
-            # 4. Map intent sang hành động
-            intent_map = ["Chào hỏi", "Tìm phòng", "Dẫn đường", "Thông tin trường", "Khác"]
-            final_intent = intent_map[multimodal_intent_idx]
+            # 4. Final response data
             
             # 5. Lấy phản hồi văn bản chi tiết
             nlu_res = understand_advanced(speech_text)

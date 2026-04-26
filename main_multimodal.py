@@ -9,9 +9,10 @@ import sys
 sys.path.append(os.getcwd())
 
 from vision_system.snn_wrapper import SNNVisionWrapper
-from multimodal_fusion.bridge import MultimodalBridge
+from multimodal_fusion.learned_bridge import LearnedMultimodalBridge
 from nlp_advanced.real_nlp_processor import RealNLPProcessor
 from scripts.robot_hardware_real import RealRobotController
+from scripts.safety_controller import SafetyController # NEW
 
 # Configuration
 CONFIG = {
@@ -26,6 +27,11 @@ CONFIG = {
         'enabled': True,
         'intent_model': 'nlp_advanced/best_advanced_nlu.pth',
         'use_rag': True
+    },
+    'fusion': {
+        'model_path': 'models/fusion/best_fusion.pth',  # ← Learned Fusion Transformer
+        'confidence_thr': 0.6,   # Dưới ngưỡng này → yêu cầu xác nhận
+        'use_phobert': False,    # True nếu có GPU đủ RAM cho PhoBERT
     },
     'robot': {
         'mode': 'mock',  # ← Đổi sang 'serial' hoặc 'ros' khi có hardware thật
@@ -68,11 +74,23 @@ def main():
             print(f"⚠️ NLP init failed: {e}, using rule-based fallback")
             nlp = RealNLPProcessor(intent_model_path="")
     
-    # 3. Multimodal Bridge
-    bridge = MultimodalBridge(vision_model=vision, nlp_processor=nlp)
-    print("✅ Multimodal Bridge ready")
+    # 3. Multimodal Bridge (Learned Fusion Transformer)
+    bridge = LearnedMultimodalBridge(
+        vision_model=vision,
+        nlp_processor=nlp,
+        model_path=CONFIG['fusion']['model_path'],
+        config={
+            'confidence_thr': CONFIG['fusion']['confidence_thr'],
+            'use_phobert':    CONFIG['fusion']['use_phobert'],
+        },
+        fallback_to_rules=True,  # Fallback sang rule-based nếu model fail
+    )
+    print("✅ Multimodal Bridge (Fusion Transformer) ready")
     
-    # 4. Robot Hardware Controller
+    # 4. Safety Controller
+    safety = SafetyController(min_distance=CONFIG['robot']['safety_distance'])
+    
+    # 5. Robot Hardware Controller
     robot = RealRobotController(
         mode=CONFIG['robot']['mode'],
         port=CONFIG['robot']['port'],
@@ -141,18 +159,37 @@ def main():
                 cv2.putText(display_frame, f"{det['class']}: {det['confidence']:.2f}", 
                            (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
             
-            # Execute robot hardware action
-            if result.get('action') and user_command:
-                robot.execute_bridge_action(result['action'], result['detections'])
-            
             # Display robot action
             if result.get('action'):
                 action = result['action']
-                cv2.putText(display_frame, f"Action: {action['type']}", (10, 90),
+                
+                # === SAFETY OVERRIDE ===
+                # Giả định lấy depth map từ vision (với fallback laplacian)
+                # SNNVisionWrapper xử lý depth ngầm định
+                # Ta có thể mock hoặc lấy nếu SNN trả về
+                # Ở đây ta lấy depth_map giả định từ processing
+                depth_map = np.zeros((128, 128)) # Fallback
+                if vision and hasattr(vision, 'depth_estimator') and vision.depth_estimator:
+                    # Lấy frame cuối cùng
+                    depth_map = vision.depth_estimator.estimate(frame)
+                
+                final_action = safety.check_safety(depth_map, action)
+                
+                # Execute robot hardware action
+                if user_command:
+                    robot.execute_bridge_action(final_action, result['detections'])
+                
+                # Display info
+                cv2.putText(display_frame, f"Action: {final_action['type']}", (10, 90),
                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
-                if action.get('response'):
+                
+                if final_action.get('reason') == 'safety_override':
+                    cv2.putText(display_frame, "⚠️ SAFETY OVERRIDE!", (10, 120),
+                               cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+                elif action.get('response'):
                     cv2.putText(display_frame, action['response'][:40], (10, 120),
                                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
+                
                 # Show robot state
                 cv2.putText(display_frame, f"Robot: {robot.current_state}", (10, 150),
                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 200, 255), 2)
