@@ -455,7 +455,51 @@ async def text_to_speech(request: Request):
         print(f"TTS Error: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
-# ============ API KIỂM TRA SỨC KHỎE ============
+# ============ API THU THẬP DỮ LIỆU (DATA COLLECTION) ============
+@app.post("/api/vision/collect")
+async def collect_data(
+    image: UploadFile = File(...),
+    label: str = Form(...),
+    bbox: str = Form(...) # JSON string "[x, y, w, h]"
+):
+    try:
+        contents = await image.read()
+        nparr = np.frombuffer(contents, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        
+        # B64 encode for storage
+        _, buf = cv2.imencode('.jpg', img)
+        img_b64 = base64.b64encode(buf).decode()
+        
+        # Parse bbox
+        import json
+        bbox_list = json.loads(bbox)
+        
+        # Save path
+        save_path = Path("data/real_vision.json")
+        save_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        samples = []
+        if save_path.exists():
+            with open(save_path, "r", encoding="utf-8") as f:
+                samples = json.load(f)
+        
+        from datetime import datetime
+        samples.append({
+            'image_b64': img_b64,
+            'bbox': bbox_list,
+            'class': label,
+            'timestamp': datetime.now().isoformat()
+        })
+        
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(samples, f, indent=2)
+            
+        return {"status": "success", "count": len(samples)}
+    except Exception as e:
+        print(f"Collect API Error: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
 @app.get("/api/health")
 async def health_check():
     return {"status": "ok", "message": "Robot AI is running!"}
