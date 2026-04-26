@@ -1,0 +1,85 @@
+# ============================================================
+# Fusion Config — SpikingFusionTransformer
+# ============================================================
+# File này điều chỉnh toàn bộ hyperparameter cho fusion model.
+# Đọc bằng: fusion_config.load_config()
+
+model:
+  # ── Architecture ─────────────────────────────────────────
+  vision_channels: 64          # Channel output của SNN (ThreeDSpikingCNN)
+  text_dim: 768                # PhoBERT hidden dim (768) | Rule-based: bỏ qua
+  d_model: 256                 # Model hidden dim
+  num_heads: 4                 # Multi-head attention heads
+  num_layers: 3                # Số Cross-Attention blocks (depth)
+  T: 8                         # SNN timesteps
+  spatial_size: 8              # Spatial pool size sau SNN (8×8 = 64 tokens)
+  n_text_tokens: 16            # Số token text cho cross-attention
+  confidence_thr: 0.60         # Dưới ngưỡng này → yêu cầu người dùng xác nhận
+  dropout: 0.1
+
+  # ── Text Encoder ─────────────────────────────────────────
+  use_phobert: false           # true: PhoBERT CLS | false: keyword vocab (edge)
+  # Nếu use_phobert=true, cần model 'vinai/phobert-base' (HuggingFace)
+
+  # ── Inference Mode ───────────────────────────────────────
+  temporal_strategy: "learned" # "learned" | "mean" — cách aggregate T frames
+
+training:
+  # ── Data ─────────────────────────────────────────────────
+  training_json: "data/training_data.json"
+  val_split: 0.15
+  max_samples: null            # null = dùng toàn bộ
+
+  # ── Hyperparams ──────────────────────────────────────────
+  epochs: 30
+  batch_size: 32
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  clip_grad_norm: 1.0
+  label_smoothing: 0.1
+
+  # ── LR Schedule ──────────────────────────────────────────
+  scheduler: "cosine"          # "cosine" | "step"
+  lr_min: 1.0e-5
+
+  # ── Loss weights ─────────────────────────────────────────
+  action_loss_weight: 1.0
+  confidence_loss_weight: 0.3
+
+  # ── Augmentation ─────────────────────────────────────────
+  augment: true
+  spike_noise_std: 0.05        # Gaussian noise thêm vào spike tensors
+  temporal_jitter: true        # Random permute T frames với xác suất 0.3
+
+  # ── Save ─────────────────────────────────────────────────
+  save_dir: "models/fusion"
+  save_best_only: true
+
+inference:
+  # ── Runtime ──────────────────────────────────────────────
+  device: "auto"               # "auto" | "cpu" | "cuda"
+  model_path: "models/fusion/best_fusion.pth"
+
+  # ── Confidence Gating ────────────────────────────────────
+  confirm_message: "Tôi không chắc lắm. Bạn có muốn tôi thực hiện {action} không?"
+  low_conf_fallback: "respond" # Action khi confidence < threshold
+
+  # ── Latency target (Jetson Orin) ─────────────────────────
+  target_latency_ms: 50        # < 50ms để realtime @ 20fps
+
+# ── Action labels ────────────────────────────────────────────
+actions:
+  - idle              # 0
+  - follow            # 1
+  - navigate_around   # 2
+  - approach_and_greet# 3
+  - search            # 4
+  - respond           # 5
+
+# ── NLU Intent labels (từ training_data.json) ────────────────
+nlu_intents:
+  - thong_tin_truong  # 0
+  - tuyen_sinh        # 1
+  - dao_tao           # 2
+  - nghien_cuu        # 3
+  - khac              # 4
